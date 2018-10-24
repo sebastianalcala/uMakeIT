@@ -1,0 +1,24 @@
+<button type="button" class="btn btn-primary" (click)="openModal(template)">
+  &#9998;
+</button>
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Producto Nuevo</h4>
+
+  </div>
+  <div class="modal-body">
+      <div id="Register">
+        <form [formGroup]="form" (ngSubmit)="editarComida()">
+          <label >Nombre:</label>
+          <input type="text" formControlName="name" >
+          <label >Descripcion:</label>
+          <input type="text" formControlName="description" >  
+          <label >Imagen:</label>
+          <input type="text" formControlName="img" >
+          <label >Precio:</label>
+          <input type="number" formControlName="price" >
+          <button type="button submit" [disabled]="form.invalid" class="btn btn-primary" >Editar</button>
+        </form>
+      </div> 
+  </div>
+</ng-template>

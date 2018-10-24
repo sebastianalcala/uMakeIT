@@ -1,0 +1,34 @@
+<div class="cuerpo">
+<div *ngFor="let c of Menu" class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{c.img}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{c.name}} <app-formulario-editar-producto></app-formulario-editar-producto></h5>
+        <p class="card-text">{{c.description}}</p> 
+      </div>
+      <div class="extras" *ngIf="c.extras.length>0">
+          <h5>extras:</h5>
+          <ul class="list-group list-group-flush">
+            <li *ngFor="let e of c.extras" class="list-group-item">{{e}} <button (click)="eliminarExtra($event,c,e)">&#10060;</button></li>
+          </ul>
+      </div>
+      <!-- <div id="boton-agregar-extra" *ngIf="editing">
+        <button (click)="editExtra($event)" type="button" class="btn btn-primary" >&#9940;</button> 
+      </div> -->
+      <div id="boton-agregar-extra" *ngIf="!editing">
+        <button (click)="editExtra($event)" type="button" class="btn btn-primary" >&#10010;</button> 
+      </div>
+      <div id="nuevoExtra" *ngIf="editing">
+        <form [formGroup]="form" (ngSubmit)="agregarExtra(c)">
+          <!-- <label for="">Nuevo Extra:</label> -->
+          <input type="text" formControlName="extra">
+          <button type="button submit"  class="btn btn-primary" >&#10004;</button>
+          <button (click)="editExtra($event)" type="button" class="btn btn-primary" >&#9940;</button> 
+        </form>
+      </div>
+      <div class="card-body">
+        <h5>Precio: {{c.price}}</h5>
+        <button (click)="deleteComida($event, c)" type="button" class="btn btn-primary" >eliminar</button>
+      </div>
+  </div>  
+</div>
+  

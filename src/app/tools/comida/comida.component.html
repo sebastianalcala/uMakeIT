@@ -1,0 +1,20 @@
+<div class="cuerpo">
+  <div *ngFor="let c of Menu" class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{c.img}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{c.name}}</h5>
+      <p class="card-text">{{c.description}}</p>
+    </div>
+    <div *ngIf="c.extras.length>0">
+        <h5>extras:</h5>
+        <ul class="list-group list-group-flush">
+          <li *ngFor="let e of c.extras" class="list-group-item">{{e}}</li>
+        </ul>
+    </div>
+    <div class="card-body">
+      <h4>Precio: {{c.price}}</h4>
+      <button type="button" class="btn btn-primary">agregar</button>
+    </div>
+  </div>  
+</div>
+  

@@ -1,0 +1,24 @@
+<carousel>
+  <div class="container">
+    <slide *ngFor="let comida of comidas">
+        <div  class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{comida.imagen}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{comida.name}}</h5>
+              <p class="card-text">{{comida.description}}</p>
+            </div>
+            <div *ngIf="comida.Extras.length>0">
+                <h5>extras:</h5>
+                <ul class="list-group list-group-flush">
+                  <li *ngFor="let extra of comida.Extras" class="list-group-item">{{extra}}</li>
+                </ul>
+            </div>
+            
+            <div class="card-body">
+              <h4>Precio: {{comida.Precio}}</h4>
+              <a routerLink="" class="card-link">Agregar</a>
+            </div>
+          </div>
+    </slide>
+  </div>
+</carousel>

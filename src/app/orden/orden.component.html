@@ -1,0 +1,28 @@
+<div id="fondo"></div>
+<div class="bloque">
+    <header>
+        <div id="dropdown">
+            <a class="dropbtn">NOMBRE DE USUARIO &#9776;</a>
+            <div class="dropdown-content">
+                <a >clave</a>
+                <a (click)="compras()">compras</a>
+                <a  (click)="menu()" >menu</a>
+                <a (click)="salir()">salir</a>
+                <a >modo admin</a>
+            </div>
+        </div>
+        <div class="title"><h1>orden</h1></div>
+    </header>
+    <main>
+        
+        <div class="orden">
+            <app-carousel ></app-carousel>
+        </div>
+        <div class="f-detallada">
+            <app-factura-detallada></app-factura-detallada>
+        </div>
+    </main>
+    <div id="comprar">
+        <button (click)="menu()" type="button" class="btn btn-primary">regresar</button>
+    </div>
+</div>

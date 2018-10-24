@@ -1,0 +1,82 @@
+// variables:
+$colors:(
+    primary: #0b172a,
+    primary-light: lighten(#0b172a,40%),
+    primary-dark: darken(#0b172a,40%),
+    secondary: #463940,
+    tertiary: #bc4123,
+    acento: white,
+);
+$desktop: 1200px;
+$cambio1: 840px;
+$padding: 15px;
+$borders: 2px;
+
+// funciones:
+@function color($color-name){//funcion para dar color
+    @return map-get($colors,$color-name)
+};
+@mixin desktop {//hace la pagina web responsive
+    @media (min-width:#{$desktop}){
+        @content;
+    }    
+}
+@mixin cambio1 {//hace la pagina web responsive
+    @media (min-width:#{$cambio1}){
+        @content;
+    }    
+};
+img{
+    padding: $padding;
+    align-self: center;
+    width: 200px;
+    height:200px;
+}
+.cuerpo{
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+    @include cambio1{
+        grid-template-columns: 1fr 1fr;
+    };
+    @include desktop{
+        grid-template-columns: 1fr 1fr 1fr;  
+    };
+}
+.card{
+    margin: 50px;
+    border: color(primary) solid $borders;
+    box-shadow: 0 20px 60px color(primary);
+    .list-group-item{
+        border:solid color(tertiary) 1px;
+        border: $borders solid color(secondary);
+        color: color(secondary);
+    }
+    .card-body{
+        display: grid;
+        text-transform: uppercase;
+        
+        h4{
+            padding: $padding;
+            align-self: flex-start;
+        }
+        button{
+            text-transform: uppercase;
+            font-weight: bolder;
+            color: color(tertiary);
+            background: color(acento);
+            padding: $padding;
+            margin: .6em;
+            text-align: center; 
+            border: $borders solid color(tertiary);
+            z-index: 2;
+        }
+        button:hover{
+            color: color(acento);
+            background: color(tertiary);
+            border: $borders color(primary) solid;
+            opacity: 1;    
+        }
+    }
+}

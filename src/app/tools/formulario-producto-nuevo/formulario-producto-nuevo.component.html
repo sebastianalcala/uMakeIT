@@ -1,0 +1,37 @@
+<button type="button" class="btn btn-primary" (click)="openModal(template)">
+    Agregar Producto
+  </button>
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Producto Nuevo</h4>
+  
+    </div>
+    <div class="modal-body">
+        <div id="Register">
+          <form [formGroup]="form" (ngSubmit)="addComida()">
+            <div class="pagina1" *ngIf="!cambiarPagina">
+              <label >Nombre:</label>
+              <input type="text" formControlName="name" [(ngModel)]="comida.name">
+              <label >Descripcion:</label>
+              <input type="text" formControlName="description" [(ngModel)]="comida.description">  
+              <label >Imagen:</label>
+              <input type="text" formControlName="img" [(ngModel)]="comida.img">
+              <label >Precio:</label>
+              <input type="number" formControlName="price" [(ngModel)]="comida.price">
+              <button type="button" class="btn btn-primary" (click)="cambiarPag()">siguiente</button>
+            </div>
+            <div class="pagina2" *ngIf="cambiarPagina">
+              <label >Extras:</label>
+              <div class="input-extra">
+                <input type="text" formControlName="extra" >
+                <button type="button" class="btn btn-primary" (click)="addExtra()">+</button>
+              </div>
+              <li *ngFor="let e of extras">{{e}}<button type="button" class="btn btn-primary" (click)="eliminarExtra(e)">x</button></li>
+              <br>
+              <button type="button" class="btn btn-primary" (click)="cambiarPag()">anterior</button>
+              <button type="button submit" [disabled]="form.invalid" class="btn btn-primary" >Agregar</button>
+            </div>
+          </form>
+        </div> 
+    </div>
+  </ng-template>

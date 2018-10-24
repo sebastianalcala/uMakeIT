@@ -1,0 +1,61 @@
+// variables:
+$colors:(
+    primary: #0b172a,
+    primary-light: lighten(#0b172a,40%),
+    primary-dark: darken(#0b172a,40%),
+    secondary: #463940,
+    tertiary: #bc4123,
+    acento: white,
+);
+$desktop: 840px;
+$padding: 15px;
+$borders: 2px;
+
+// funciones:
+@function color($color-name){//funcion para dar color
+    @return map-get($colors,$color-name)
+};
+@mixin desktop {//hace la pagina web responsive
+    @media (min-width:#{$desktop}){
+        @content;
+    }    
+}
+
+img{
+    padding: $padding;
+    align-self: center;
+    width: 200px;
+    height:200px;
+}
+.card{
+    margin: 50px;
+    border: color(primary) solid $borders;
+    box-shadow: 0 20px 60px color(primary);
+    .list-group-item{
+        border:solid color(tertiary) 1px;
+        border: $borders solid color(secondary);
+        color: color(secondary);
+    }
+    .card-body{
+        display: grid;
+        text-transform: uppercase;
+        
+        h4{
+            padding: $padding;
+            align-self: flex-start;
+        }
+        a{
+            color: color(tertiary);
+            font-weight: bold;
+            padding: $padding;
+            background: color(acento);
+            border: $borders solid color(tertiary);
+            text-align: center;
+        }
+        a:hover{
+            color: color(acento);
+            background: color(tertiary);
+            border: $borders solid color(primary);
+        }
+    }
+}

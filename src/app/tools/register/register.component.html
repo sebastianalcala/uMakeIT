@@ -8,17 +8,17 @@
   </div>
   <div class="modal-body">
       <div id="Register">
-        <form action="">
-          <label for="usuario">Username:</label>
-          <input type="text" name="usuario" id="usuario">
-          <label for="clave">Password:</label>
-          <input type="text" name="clave" id="clave">  
-          <label for="clave">Repeat Password:</label>
-          <input type="text" name="clave" id="clave">
+        <form [formGroup]="form" (ngSubmit)="register()">
+          <label for="email">E-mail:</label>
+          <input type="email" formControlName="email">
+          <label for="password">Password:</label>
+          <input type="password" formControlName="password">  
+          <label for="passwordConf">Repeat Password:</label>
+          <input type="password" formControlName="passwordConf">
+          <div class="submit">
+            <button type="button submit" class="btn btn-primary" (click)="closeFirstModal()">submit</button>
+          </div>
         </form>
-        <div class="submit">
-            <button type="button" class="btn btn-primary">submit</button>
-        </div>
       </div> 
   </div>
 </ng-template>

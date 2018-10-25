@@ -3,12 +3,12 @@
 </button>
 <ng-template #template>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Producto Nuevo</h4>
+    <h4 class="modal-title pull-left">{{eComida.name}}</h4>
 
   </div>
   <div class="modal-body">
       <div id="Register">
-        <form [formGroup]="form" (ngSubmit)="editarComida()">
+        <form [formGroup]="form" (ngSubmit)="editarComida(eComida)">
           <label >Nombre:</label>
           <input type="text" formControlName="name" >
           <label >Descripcion:</label>

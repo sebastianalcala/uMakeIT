@@ -7,7 +7,8 @@ $colors:(
     tertiary: #bc4123,
     acento: white,
 );
-$desktop: 840px;
+$desktop: 1200px;
+$cambio1: 840px;
 $padding: 15px;
 $borders: 2px;
 
@@ -15,13 +16,16 @@ $borders: 2px;
 @function color($color-name){//funcion para dar color
     @return map-get($colors,$color-name)
 };
-
 @mixin desktop {//hace la pagina web responsive
     @media (min-width:#{$desktop}){
         @content;
-    }
-    
-}
+    }    
+};
+@mixin cambio1 {//hace la pagina web responsive
+    @media (min-width:#{$cambio1}){
+        @content;
+    }    
+};
 
 //classes:
 #background{
@@ -30,9 +34,8 @@ $borders: 2px;
     background-size: cover;
     width: 100%;
     height: 100%;
-    position: absolute;
-    z-index: -1;
-    
+    position: fixed;
+    z-index: -1;  
 }
 
 main{
@@ -66,44 +69,41 @@ main{
         position: static;
         grid-column: 2;
         grid-row: 1;
-        
         padding: $padding;
-        
         display: grid;
         grid-template-rows: 3fr 2fr 2fr;
-        justify-items: center;
-        align-items: center;
-        
         background: rgba(255, 255, 255, 0.5);
         box-shadow: 0 20px 60px rgba(0, 0, 0, .2);
         border: $borders color(primary) solid;
-        border-radius: 15px;
         height: 500px;
         width: 300px;
         
         #logo{
+            align-self: center;
+            justify-self: center;
             grid-row:1;
         }
-        #login{
+        form{
             grid-row: 2;
-            label{
-                font-size: 20px;
-                font-weight: bold;
-                color: color(primary);
+            display: grid;
+            #login{
+                
+                label{
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: color(primary);
+                }
+                input{
+                    padding: $padding;
+                    border:$borders solid color(primary);
+                    margin: 0.5em;
+                }
             }
-            input{
-                padding: $padding;
-                border:$borders solid color(primary);
-                border-radius: 20px;
-                margin: 0.5em;
+            button{
+                grid-row: 2;
+                justify-self: center;
+                align-self: center;
             }
-            
-        }
-        button{
-            grid-row: 3;
-            justify-self: center;
-            align-self: center;
-            
         }
         
     }

@@ -78,6 +78,7 @@ header{
         a{
             color: color(tertiary);
             font-size: 2em;
+            cursor: pointer;
         }
         a:hover{
             color: color(acento);
@@ -99,6 +100,7 @@ header{
                 padding: $padding;
                 text-decoration: none;
                 display: block;
+                cursor: pointer;
             }
         }
         .dropdown-content a:hover {

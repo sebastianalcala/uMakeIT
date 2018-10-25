@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-orden',
@@ -12,13 +12,13 @@ export class OrdenComponent implements OnInit {
 
   ngOnInit() {
   }
-  menu(){
+  menu() {
     this.router.navigate(['/menu']);
   }
-  salir(){
+  salir() {
     this.router.navigate(['']);
   }
-  compras(){
+  compras() {
     this.router.navigate(['/compras']);
   }
 

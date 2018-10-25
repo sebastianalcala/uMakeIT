@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuService } from "../../services/menu.service";
+import { MenuService } from '../../services/menu.service';
 import { comida } from 'src/app/model/comida';
-import { FormBuilder,FormGroup,Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-comida-admin',
   templateUrl: './comida-admin.component.html',
@@ -10,36 +10,39 @@ import { FormBuilder,FormGroup,Validators } from "@angular/forms";
 export class ComidaAdminComponent implements OnInit {
   form: FormGroup;
   Menu = [];
-  editing: boolean= false;
+  editing = false;
 
-  constructor(private formBuilder: FormBuilder,public ms: MenuService) {
-    this.form= this.formBuilder.group({
+  constructor(private formBuilder: FormBuilder, public ms: MenuService) {
+    this.form = this.formBuilder.group({
       extra: ['', [ Validators.required]],
     });
    }
 
   ngOnInit() {
       this.ms.getMenu().subscribe(Menu => {
-      this.Menu=Menu;
+      this.Menu = Menu;
     });
   }
-  deleteComida(event, comida){
+  // tslint:disable-next-line:no-shadowed-variable
+  deleteComida(event, comida) {
     this.ms.deleteComida(comida);
   }
-  editExtra(event){
-    this.editing=!this.editing;
-    
+  editExtra(event) {
+    this.editing = !this.editing;
+
   }
-  eliminarExtra(event, comida:comida, extra:string){
-    const index=comida.extras.indexOf(extra);
+  // tslint:disable-next-line:no-shadowed-variable
+  eliminarExtra(event, comida: comida, extra: string) {
+    const index = comida.extras.indexOf(extra);
     if (index !== -1) {
       comida.extras.splice(index, 1);
-    } 
+    }
     this.ms.updateComida(comida);
   }
-  agregarExtra(comida:comida){
+  // tslint:disable-next-line:no-shadowed-variable
+  agregarExtra(comida: comida) {
     comida.extras.push(this.form.value.extra);
     this.ms.updateComida(comida);
   }
-  
+
 }

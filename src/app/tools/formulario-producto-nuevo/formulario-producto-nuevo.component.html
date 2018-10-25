@@ -26,7 +26,7 @@
                 <input type="text" formControlName="extra" >
                 <button type="button" class="btn btn-primary" (click)="addExtra()">+</button>
               </div>
-              <li *ngFor="let e of extras">{{e}}<button type="button" class="btn btn-primary" (click)="eliminarExtra(e)">x</button></li>
+              <li *ngFor="let e of extras">{{e}}<button type="button" class="btn btn-primary" (click)="eliminarExtra(e)">&#10060;</button></li>
               <br>
               <button type="button" class="btn btn-primary" (click)="cambiarPag()">anterior</button>
               <button type="button submit" [disabled]="form.invalid" class="btn btn-primary" >Agregar</button>

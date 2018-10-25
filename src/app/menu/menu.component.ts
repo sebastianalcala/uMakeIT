@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
-import { MenuService } from "../services/menu.service";
-import { comida } from 'src/app/model/comida';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -9,23 +9,22 @@ import { comida } from 'src/app/model/comida';
 })
 export class MenuComponent implements OnInit {
 
-  modo:boolean =false; //false;
-  
-  constructor(public router: Router) { }
+  modo = false; // false;
+  constructor(private as: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
-  comprar(){
+  comprar() {
     this.router.navigate(['/orden']);
   }
-  salir(){
-    this.router.navigate(['']);
-  }
-  compras(){
+  compras() {
     this.router.navigate(['/compras']);
   }
-  toggleModo(){
-    this.modo=!this.modo;
+  toggleModo() {
+    this.modo = !this.modo;
   }
-  
+  signOut() {
+    this.as.signOut();
+  }
+
 }

@@ -1,7 +1,7 @@
-import { Component, OnInit,TemplateRef } from '@angular/core';
-import { MenuService } from "../../services/menu.service";
+import { Component, OnInit, TemplateRef, Input } from '@angular/core';
+import { MenuService } from '../../services/menu.service';
 import { comida } from 'src/app/model/comida';
-import { FormBuilder,FormGroup,Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
@@ -13,15 +13,15 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 })
 export class FormularioEditarProductoComponent implements OnInit {
   form: FormGroup;
-  comida= {} as comida;
+  comida = {} as comida;
   modalRef: BsModalRef;
-
-  constructor(private formBuilder: FormBuilder,public ms: MenuService,private modalService: BsModalService) {
-    this.form= this.formBuilder.group({
+  @Input() eComida;
+  constructor(private formBuilder: FormBuilder, public ms: MenuService, private modalService: BsModalService) {
+    this.form = this.formBuilder.group({
       name: ['', ],
       description: ['', ],
       price: ['', ],
-      img:['',],
+      img: ['', ],
     });
    }
 
@@ -30,21 +30,25 @@ export class FormularioEditarProductoComponent implements OnInit {
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
-  editarComida(){
-    if(this.form.value.name !== ""){
-      this.comida.name=this.form.value.name;
+  // tslint:disable-next-line:no-shadowed-variable
+  editarComida(comida: comida) {
+    this.comida = comida;
+    console.log(this.comida.name);
+    if (this.form.value.name !== '') {
+      this.comida.name = this.form.value.name;
+      console.log(this.comida);
       this.ms.updateComida(this.comida);
     }
-    if(this.form.value.description !== ""){
-      this.comida.name=this.form.value.description;
+    if (this.form.value.description !== '') {
+      this.comida.description = this.form.value.description;
       this.ms.updateComida(this.comida);
     }
-    if(this.form.value.price !== ""){
-      this.comida.name=this.form.value.price;
+    if (this.form.value.price !== '') {
+      this.comida.price = this.form.value.price;
       this.ms.updateComida(this.comida);
     }
-    if(this.form.value.img !== ""){
-      this.comida.img=this.form.value.img;
+    if (this.form.value.img !== '') {
+      this.comida.img = this.form.value.img;
       this.ms.updateComida(this.comida);
     }
   }

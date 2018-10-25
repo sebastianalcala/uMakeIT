@@ -2,13 +2,13 @@
 <div *ngFor="let c of Menu" class="card" style="width: 18rem;">
       <img class="card-img-top" src="{{c.img}}" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">{{c.name}} <app-formulario-editar-producto></app-formulario-editar-producto></h5>
+        <h5 class="card-title">{{c.name}} <app-formulario-editar-producto [eComida]=c></app-formulario-editar-producto></h5>
         <p class="card-text">{{c.description}}</p> 
       </div>
       <div class="extras" *ngIf="c.extras.length>0">
           <h5>extras:</h5>
           <ul class="list-group list-group-flush">
-            <li *ngFor="let e of c.extras" class="list-group-item">{{e}} <button (click)="eliminarExtra($event,c,e)">&#10060;</button></li>
+            <li *ngFor="let e of c.extras" class="list-group-item">{{e}} <button type="button" class="btn btn-primary" (click)="eliminarExtra($event,c,e)">&#10060;</button></li>
           </ul>
       </div>
       <!-- <div id="boton-agregar-extra" *ngIf="editing">

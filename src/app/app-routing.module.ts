@@ -7,7 +7,7 @@ import { OrdenComponent } from './orden/orden.component';
 const routes: Routes = [
   {
     path: '',
-    component:LoginComponent,
+    component: LoginComponent,
   },
   {
     path: 'menu',

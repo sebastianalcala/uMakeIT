@@ -7,10 +7,10 @@ import { BsDropdownModule, ButtonsModule, CarouselModule, ModalModule } from 'ng
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { ScrollbarModule } from 'ngx-scrollbar';
 
 
 import { environment } from '../environments/environment';
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
@@ -53,6 +53,7 @@ import { FormularioEditarProductoComponent } from './tools/formulario-editar-pro
     FormsModule,
     ReactiveFormsModule,
     AngularFireAuthModule,
+    ScrollbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

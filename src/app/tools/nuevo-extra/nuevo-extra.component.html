@@ -1,0 +1,12 @@
+<div id="boton-agregar-extra" *ngIf="!editing">
+    <button (click)="editExtra($event)" type="button" class="btn btn-primary" >&#10010;</button> 
+</div>
+
+<div id="nuevoExtra" *ngIf="editing">
+  <form [formGroup]="form" (ngSubmit)="agregarExtra(eComida)">
+    <input type="text" formControlName="extra">
+    <button type="button submit"  class="btn btn-primary" >&#10004;</button>
+    <button (click)="editExtra($event)" type="button" class="btn btn-primary" >&#9940;</button> 
+  </form>
+  
+</div>

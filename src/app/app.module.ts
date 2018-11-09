@@ -24,6 +24,7 @@ import { RegisterComponent } from './tools/register/register.component';
 import { ComidaAdminComponent } from './tools/comida-admin/comida-admin.component';
 import { FormularioProductoNuevoComponent } from './tools/formulario-producto-nuevo/formulario-producto-nuevo.component';
 import { FormularioEditarProductoComponent } from './tools/formulario-editar-producto/formulario-editar-producto.component';
+import { NuevoExtraComponent } from './tools/nuevo-extra/nuevo-extra.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { FormularioEditarProductoComponent } from './tools/formulario-editar-pro
     ComidaAdminComponent,
     FormularioProductoNuevoComponent,
     FormularioEditarProductoComponent,
+    NuevoExtraComponent,
   ],
   imports: [
     BrowserModule,

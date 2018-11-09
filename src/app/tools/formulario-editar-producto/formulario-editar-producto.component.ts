@@ -33,7 +33,6 @@ export class FormularioEditarProductoComponent implements OnInit {
   // tslint:disable-next-line:no-shadowed-variable
   editarComida(comida: comida) {
     this.comida = comida;
-    console.log(this.comida.name);
     if (this.form.value.name !== '') {
       this.comida.name = this.form.value.name;
       console.log(this.comida);
@@ -51,6 +50,8 @@ export class FormularioEditarProductoComponent implements OnInit {
       this.comida.img = this.form.value.img;
       this.ms.updateComida(this.comida);
     }
+    this.form.reset();
+    this.comida = {};
   }
 
 }

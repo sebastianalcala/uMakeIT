@@ -10,7 +10,8 @@ $colors:(
 $desktop: 1200px;
 $cambio1: 840px;
 $padding: 15px;
-$borders: 2px;
+$borders: 4px;
+$margin: 50px;
 
 // funciones:
 @function color($color-name){//funcion para dar color
@@ -26,6 +27,7 @@ $borders: 2px;
         @content;
     }    
 };
+
 img{
     padding: $padding;
     align-self: center;
@@ -35,6 +37,7 @@ img{
 .cuerpo{
     display: grid;
     grid-template-columns: 1fr;
+    grid-row-gap: $margin;
     align-items: center;
     justify-items: center;
     @include cambio1{
@@ -45,21 +48,60 @@ img{
     };
 }
 .card{
-    margin: 50px;
+    float: left;
+    height: 100%;
+    width: 80%;
+    align-self: flex-start;
+    font-weight: bold;
+    text-transform: uppercase;
     border: color(primary) solid $borders;
     box-shadow: 0 20px 60px color(primary);
-    .list-group-item{
-        border:solid color(tertiary) 1px;
-        border: $borders solid color(secondary);
-        color: color(secondary);
+    .extras{
+        h5{ 
+            padding: $padding;
+            font-weight: bold;
+            height: fit-content;
+            align-self: flex-start;
+            font-weight: bold;
+        }
+        .list-group-item{
+        
+            border-bottom: 4px solid color(secondary);
+            border-left: 0px;
+            border-right: 0px;
+            border-top: 0px;
+            color: color(secondary);
+            font-weight: normal;
+            button{
+                border: none;
+                background: none;
+                cursor: pointer;
+            }
+        }
     }
+    
     .card-body{
+        h5{
+            height: fit-content;
+            align-self: flex-start;
+            font-weight: bold;
+        }
+        p{
+            height: fit-content;
+            font-weight: normal;
+        }
+    }
+    .card-body2{
+        font-weight: bold;
         display: grid;
         text-transform: uppercase;
-        
-        h4{
-            padding: $padding;
+        padding: $padding;
+        height: fit-content;
+        h5{
+            height: 25px;
+            width: 250px;
             align-self: flex-start;
+            font-weight: bold;
         }
         button{
             text-transform: uppercase;
@@ -67,10 +109,12 @@ img{
             color: color(tertiary);
             background: color(acento);
             padding: $padding;
-            margin: .6em;
+            margin: 0;
             text-align: center; 
             border: $borders solid color(tertiary);
             z-index: 2;
+            cursor: pointer;
+            align-self: center;
         }
         button:hover{
             color: color(acento);
@@ -80,3 +124,4 @@ img{
         }
     }
 }
+

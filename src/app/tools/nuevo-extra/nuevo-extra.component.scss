@@ -1,0 +1,83 @@
+// variables:
+$colors:(
+    primary: #0b172a,
+    primary-light: lighten(#0b172a,40%),
+    primary-dark: darken(#0b172a,40%),
+    secondary: #463940,
+    tertiary: #bc4123,
+    acento: white,
+);
+$desktop: 1200px;
+$cambio1: 840px;
+$padding: 15px;
+$borders: 4px;
+$margin: 50px;
+
+// funciones:
+@function color($color-name){//funcion para dar color
+    @return map-get($colors,$color-name)
+}
+@mixin desktop {//hace la pagina web responsive
+    @media (min-width:#{$desktop}){
+        @content;
+    }    
+}
+@mixin cambio1 {//hace la pagina web responsive
+    @media (min-width:#{$cambio1}){
+        @content;
+    }    
+}
+#boton-agregar-extra{
+    position: relative;
+    display: grid;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+    border-bottom: 4px solid color(secundary);
+    button{
+        text-transform: uppercase;
+        font-weight: bolder;
+        font-size: 1.5em;
+        background: color(acento);
+        border: none;
+        text-align: center; 
+        z-index: 2;
+        color: green;
+        width:fit-content;
+        height: fit-content;
+        cursor: pointer;
+    }
+    button:hover{
+        color: color(primary);
+    }
+}
+#nuevoExtra{
+    padding: none;
+    position: relative;
+    display: grid;
+    border: solid 4px color(secondary);
+    border-right: 0;
+    border-left: 0;
+    border-top: 0;
+    form{
+        margin: 0;
+        input{
+            border: $borders color(tertiary) solid;
+            margin: 5px;
+        }
+        button{
+            text-transform: uppercase;
+            font-weight: bolder;
+            background: color(acento);
+            padding: none;
+            text-align: center; 
+            border: none;
+            z-index: 2;
+            bottom: 0;
+        }
+        button:hover{
+            background: none;
+            border: none;   
+        }
+    }
+}

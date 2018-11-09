@@ -18,5 +18,6 @@ export class LoginComponent implements OnInit {
   }
   logIn() {
     this.as.logIn(this.form.value.email, this.form.value.password);
+    this.form.reset();
   }
 }

@@ -40,6 +40,7 @@ export class FormularioProductoNuevoComponent implements OnInit {
     this.cambiarPagina = !this.cambiarPagina;
     this.extras = [];
     this.comida = {extras: [] = []} as comida;
+    this.form.reset();
   }
   cambiarPag() {
     this.cambiarPagina = !this.cambiarPagina;

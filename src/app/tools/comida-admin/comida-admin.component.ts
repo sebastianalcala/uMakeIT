@@ -10,8 +10,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ComidaAdminComponent implements OnInit {
   form: FormGroup;
   Menu = [];
-  editing = false;
-
   constructor(private formBuilder: FormBuilder, public ms: MenuService) {
     this.form = this.formBuilder.group({
       extra: ['', [ Validators.required]],
@@ -27,22 +25,12 @@ export class ComidaAdminComponent implements OnInit {
   deleteComida(event, comida) {
     this.ms.deleteComida(comida);
   }
-  editExtra(event) {
-    this.editing = !this.editing;
-
-  }
-  // tslint:disable-next-line:no-shadowed-variable
-  eliminarExtra(event, comida: comida, extra: string) {
-    const index = comida.extras.indexOf(extra);
-    if (index !== -1) {
-      comida.extras.splice(index, 1);
+     // tslint:disable-next-line:no-shadowed-variable
+     eliminarExtra(event, comida: comida, extra: string) {
+      const index = comida.extras.indexOf(extra);
+      if (index !== -1) {
+        comida.extras.splice(index, 1);
+      }
+      this.ms.updateComida(comida);
     }
-    this.ms.updateComida(comida);
-  }
-  // tslint:disable-next-line:no-shadowed-variable
-  agregarExtra(comida: comida) {
-    comida.extras.push(this.form.value.extra);
-    this.ms.updateComida(comida);
-  }
-
 }

@@ -64,6 +64,7 @@ $borders: 2px;
         animation: fadeIn 1s;
     }
     main{
+        height: fit-content;
         position: static;
         grid-row: 2;
         display: grid;
@@ -142,10 +143,9 @@ header{
 }
 main{
     div#menu-layout{
+        width: 100%;
         animation: fadeIn 6s;
     }
-    
-    
 }
 
 div#b-footer{

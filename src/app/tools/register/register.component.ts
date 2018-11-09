@@ -30,5 +30,6 @@ export class RegisterComponent implements OnInit {
   }
   register() {
     this.as.register(this.form.value.email, this.form.value.password);
+    this.form.reset();
   }
 }

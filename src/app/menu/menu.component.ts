@@ -18,7 +18,7 @@ export class MenuComponent implements OnInit {
     this.router.navigate(['/orden']);
   }
   compras() {
-    this.router.navigate(['/compras']);
+    // this.router.navigate(['/compras']);
   }
   toggleModo() {
     this.modo = !this.modo;

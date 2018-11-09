@@ -10,7 +10,8 @@ $colors:(
 $desktop: 1200px;
 $cambio1: 840px;
 $padding: 15px;
-$borders: 2px;
+$borders: 4px;
+$margin: 50px;
 
 // funciones:
 @function color($color-name){//funcion para dar color
@@ -36,6 +37,7 @@ img{
 .cuerpo{
     display: grid;
     grid-template-columns: 1fr;
+    grid-row-gap: $margin;
     align-items: center;
     justify-items: center;
     @include cambio1{
@@ -46,36 +48,58 @@ img{
     };
 }
 .card{
+    float: left;
+    height: 100%;
+    width: 80%;
+    align-self: flex-start;
     font-weight: bold;
     text-transform: uppercase;
-    margin: 50px;
     border: color(primary) solid $borders;
     box-shadow: 0 20px 60px color(primary);
-    p{
-        font-weight: normal;
-    }
-    h5{
-        font-weight: bold;
-    }
-    .list-group-item{
-        border-bottom: 4px solid color(secondary);
-        border-left: 0px;
-        border-right: 0px;
-        border-top: 0px;
-        color: color(secondary);
-        font-weight: normal;
-        button{
-            border: none;
-            background: none;
-            cursor: pointer;
+    .extras{
+        h5{ 
+            padding: $padding;
+            font-weight: bold;
+            height: fit-content;
+            align-self: flex-start;
+            font-weight: bold;
+        }
+        .list-group-item{
+        
+            border-bottom: 4px solid color(secondary);
+            border-left: 0px;
+            border-right: 0px;
+            border-top: 0px;
+            color: color(secondary);
+            font-weight: normal;
+            button{
+                border: none;
+                background: none;
+                cursor: pointer;
+            }
         }
     }
+    
     .card-body{
+        h5{
+            height: fit-content;
+            align-self: flex-start;
+            font-weight: bold;
+        }
+        p{
+            height: fit-content;
+            font-weight: normal;
+        }
+    }
+    .card-body2{
+        font-weight: bold;
         display: grid;
         text-transform: uppercase;
-        font-weight: bold;
-        h4{
-            padding: $padding;
+        padding: $padding;
+        height: fit-content;
+        h5{
+            height: 25px;
+            width: 250px;
             align-self: flex-start;
             font-weight: bold;
         }
@@ -85,72 +109,18 @@ img{
             color: color(tertiary);
             background: color(acento);
             padding: $padding;
-            margin: .6em;
+            margin: 0;
             text-align: center; 
             border: $borders solid color(tertiary);
             z-index: 2;
             cursor: pointer;
+            align-self: center;
         }
         button:hover{
             color: color(acento);
             background: color(tertiary);
             border: $borders color(primary) solid;
             opacity: 1;    
-        }
-    }
-    #boton-agregar-extra{
-        position: relative;
-        display: grid;
-        width: 100%;
-        align-items: center;
-        justify-items: center;
-        border-bottom: 4px solid color(secundary);
-        button{
-            text-transform: uppercase;
-            font-weight: bolder;
-            font-size: 1.5em;
-            background: color(acento);
-            border: none;
-            text-align: center; 
-            z-index: 2;
-            color: green;
-            width:fit-content;
-            height: fit-content;
-            cursor: pointer;
-        }
-        button:hover{
-            color: color(primary);
-        }
-        
-    }
-    #nuevoExtra{
-        padding: none;
-        position: relative;
-        display: grid;
-        border: solid 4px color(secondary);
-        border-right: 0;
-        border-left: 0;
-        border-top: 0;
-        form{
-            margin: 0;
-            input{
-                border: $borders color(tertiary) solid;
-                margin: 5px;
-            }
-            button{
-                text-transform: uppercase;
-                font-weight: bolder;
-                color: color(tertiary);
-                background: color(acento);
-                padding: none;
-                text-align: center; 
-                border: none;
-                z-index: 2;
-            }
-            button:hover{
-                background: none;
-                border: none;   
-            }
         }
     }
 }

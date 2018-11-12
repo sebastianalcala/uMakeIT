@@ -1,13 +1,34 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Router, Route } from '@angular/router';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
+import { user } from '../model/user';
+import { Observable, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { auth } from 'firebase';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private router: Router, private afAuth: AngularFireAuth) { }
-
+  user: Observable<user>;
+  userDoc: AngularFirestoreDocument<user>;
+  constructor(private router: Router, private afAuth: AngularFireAuth, private afs: AngularFirestore) {
+    this.user = this.afAuth.authState.pipe(
+      // tslint:disable-next-line:no-shadowed-variable
+      switchMap(user => {
+        if (user) {
+          return this.afs.doc<user>(`Users/${user.uid}`).valueChanges();
+        } else {
+          return of(null);
+        }
+      })
+    );
+   }
+   googleLogin() {
+    const provider = new auth.GoogleAuthProvider();
+    return this.oAuthLogin(provider);
+  }
   logIn(email, password) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password).then(credentials => {
       this.router.navigate(['/menu']);
@@ -15,15 +36,69 @@ export class AuthService {
       alert(err.message);
     });
   }
-  register(email, password) {
-    this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(credentials => {
-    }).catch(err => {
-      alert(err.message); });
+
+  private oAuthLogin(provider) {
+    return this.afAuth.auth.signInWithPopup(provider)
+      .then((credential) => {
+        this.updateUserData(credential.user);
+        this.router.navigate(['/menu']);
+      });
   }
+
+
+  // tslint:disable-next-line:no-shadowed-variable
+  private updateUserData(user) {
+    // Sets user data to firestore on login
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`Users/${user.uid}`);
+    const data: user = {
+      uid: user.uid,
+      email: user.email,
+      name: user.displayName,
+      photoURL: user.photoURL,
+      role: {
+        subscriber: true,
+      },
+      carrito: [],
+    };
+    return userRef.set(data, {merge: true});
+  }
+
+
   signOut() {
-    this.afAuth.auth.signOut().then(credentials => {
-      this.router.navigate(['/']);
+    this.afAuth.auth.signOut().then(() => {
+        this.router.navigate(['']);
     });
+  }
+
+  // tslint:disable-next-line:no-shadowed-variable
+  private checkAuthorization(user: user, allowedRoles: string[]): boolean {
+    if (!user) { return false; }
+    for (const role of allowedRoles) {
+      if ( user.role[role] ) {
+        return true;
+      }
+    }
+    return false;
+  }
+  // tslint:disable-next-line:no-shadowed-variable
+  canRead(user: user): boolean {
+    const allowed = ['subscriber'];
+    return this.checkAuthorization(user, allowed);
+  }
+  // tslint:disable-next-line:no-shadowed-variable
+  canEdit(user: user): boolean {
+    const allowed = ['admin'];
+    return this.checkAuthorization(user, allowed);
+  }
+  // tslint:disable-next-line:no-shadowed-variable
+  canDelete(user: user): boolean {
+    const allowed = ['admin'];
+    return this.checkAuthorization(user, allowed);
+  }
+  // tslint:disable-next-line:no-shadowed-variable
+  updateUser(user: user) {
+    this.userDoc = this.afs.doc(`Users/${user.uid}`);
+    this.userDoc.update(user);
   }
 }
 

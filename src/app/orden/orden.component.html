@@ -1,23 +1,22 @@
 <div id="fondo"></div>
-<div class="bloque">
+<div class="bloque" *ngIf="auth.user | async as user">
     <header>
         <div id="dropdown">
-            <a class="dropbtn">NOMBRE DE USUARIO &#9776;</a>
+            <a class="dropbtn">{{user.name}} &#9776;</a>
             <div class="dropdown-content">
                 <a >clave</a>
                 <a (click)="compras()">compras</a>
                 <a  (click)="menu()" >menu</a>
-                <a (click)="salir()">salir</a>
-                <hr>
-                <a >modo admin</a>
+                <a (click)="auth.signOut()">salir</a>
             </div>
         </div>
         <div class="title"><h1>orden</h1></div>
     </header>
     <main>
-        
         <div class="orden">
-            <app-carousel ></app-carousel>
+            <span *ngFor="let comida of user.carrito">
+                <app-comida-carrito [c]=comida></app-comida-carrito>
+            </span>
         </div>
         <div class="f-detallada">
             <app-factura-detallada></app-factura-detallada>

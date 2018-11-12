@@ -5,7 +5,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
-
 @Component({
   selector: 'app-formulario-editar-producto',
   templateUrl: './formulario-editar-producto.component.html',
@@ -15,6 +14,7 @@ export class FormularioEditarProductoComponent implements OnInit {
   form: FormGroup;
   comida = {} as comida;
   modalRef: BsModalRef;
+
   @Input() eComida;
   constructor(private formBuilder: FormBuilder, public ms: MenuService, private modalService: BsModalService) {
     this.form = this.formBuilder.group({

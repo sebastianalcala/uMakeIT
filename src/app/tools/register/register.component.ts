@@ -3,7 +3,6 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -15,6 +14,7 @@ export class RegisterComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private modalService: BsModalService, private as: AuthService) {
     this.form = this.formBuilder.group({
       email: ['', [ Validators.required]],
+      name: ['', [ Validators.required]],
       password: ['', [ Validators.required]],
       passwordConf: ['', [ Validators.required]],
     });
@@ -27,9 +27,5 @@ export class RegisterComponent implements OnInit {
   closeFirstModal() {
     this.modalRef.hide();
     this.modalRef = null;
-  }
-  register() {
-    this.as.register(this.form.value.email, this.form.value.password);
-    this.form.reset();
   }
 }

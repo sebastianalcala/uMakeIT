@@ -1,16 +1,16 @@
 <div id="fondo"></div>
-<div class="bloque" >
+<div class="bloque" *ngIf="auth.user | async as user">
     <header>
         <div class="logo"><img src="" alt=""></div>
         <div id="dropdown">
-            <a class="dropbtn">NOMBRE DE USUARIO &#9776;</a>
+            <a class="dropbtn">{{user.name}} &#9776;</a>
             <div class="dropdown-content">
                 <a >clave</a>
                 <a (click)="compras()">compras</a>
                 <a  (click)="comprar()" >orden</a>
-                <a (click)="signOut()">salir</a>
-                <hr>
-                <a (click)="toggleModo()">modo admin</a>
+                <a (click)="auth.signOut()">salir</a>
+                <hr *ngIf="auth.canEdit(user)">
+                <a (click)="toggleModo()" *ngIf="auth.canEdit(user)">modo admin</a>
             </div>
         </div>
         <div class="title">
@@ -19,10 +19,10 @@
     </header>
     <main>
         <div id="menu-layout" *ngIf="!modo">
-            <app-comida></app-comida>
+            <app-comida [u]=user></app-comida>
         </div>  
         <div id="menu-layout" *ngIf="modo">
-            <app-comida-admin></app-comida-admin>
+            <app-comida-admin ></app-comida-admin>
         </div>  
     </main>
     <div id="b-footer" *ngIf="!modo">

@@ -10,7 +10,8 @@ $colors:(
 $desktop: 1200px;
 $cambio1: 840px;
 $padding: 15px;
-$borders: 2px;
+$borders: 4px;
+$margin: 50px;
 
 // funciones:
 @function color($color-name){//funcion para dar color
@@ -20,7 +21,7 @@ $borders: 2px;
     @media (min-width:#{$desktop}){
         @content;
     }    
-};
+}
 @mixin cambio1 {//hace la pagina web responsive
     @media (min-width:#{$cambio1}){
         @content;
@@ -137,6 +138,17 @@ main{
     
     div.orden{
         grid-column: 1;
+        // display: grid;
+        // grid-template-columns: 1fr;
+        // grid-row-gap: $margin;
+        // align-items: center;
+        // justify-items: center;
+        // @include cambio1{
+        //     grid-template-columns: 1fr 1fr;
+        // };
+        // @include desktop{
+        //     grid-template-columns: 1fr 1fr 1fr;  
+        // };
     }
     div.f-detallada{
         align-self: center;

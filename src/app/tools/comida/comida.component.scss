@@ -47,11 +47,20 @@ img{
         grid-template-columns: 1fr 1fr 1fr;  
     };
 }
+.comida{
+    display: grid;
+    height: 100%;
+    width: 80%;
+}
+#nodisponible{
+    opacity: 0.5;
+}
 .card{
     float: left;
     height: 100%;
     width: 80%;
     align-self: flex-start;
+    justify-self: center;
     font-weight: bold;
     text-transform: uppercase;
     border: color(primary) solid $borders;

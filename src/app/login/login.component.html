@@ -4,7 +4,7 @@
         <div id="logo">
             <a routerLink=""><img src="../../assets/img/logo-login.png" alt=""></a>
         </div>
-        <form [formGroup]="form" (ngSubmit)="logIn()">
+        <form [formGroup]="form" (ngSubmit)="login()">
             <div id="login">
                 <label for="email">E-mail:</label>
                 <input type="text" formControlName="email" >
@@ -15,7 +15,7 @@
         </form>
         
     </section>
-    <div class="registro">
-        <app-register></app-register>
+    <div class="googleLogin">
+        <button (click)="auth.googleLogin()" type="button" class="btn btn-primary" id="googlebtn">google</button>
     </div>   
 </main>

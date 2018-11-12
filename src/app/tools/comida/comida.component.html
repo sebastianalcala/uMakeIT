@@ -1,20 +1,39 @@
-<div class="cuerpo">
-  <div *ngFor="let c of Menu" class="card">
-    <img class="card-img-top" src="{{c.img}}" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{c.name}}</h5>
-      <p class="card-text">{{c.description}}</p>
-    </div>
-    <div *ngIf="c.extras.length>0" class="extras">
-        <h5>extras:</h5>
-        <ul class="list-group list-group-flush">
-          <li *ngFor="let e of c.extras" class="list-group-item">{{e}}</li>
-        </ul>
-    </div>
-    <div class="card-body2">
-      <h4>Precio: {{c.price}}</h4>
-      <button type="button" class="btn btn-primary">agregar</button>
-    </div>
-  </div>  
+<div class="cuerpo" >
+  <span class="comida" *ngFor="let c of Menu">
+      <div class="card" *ngIf="c.disponible" >
+          <img class="card-img-top" src="{{c.img}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{c.name}}</h5>
+            <p class="card-text">{{c.description}}</p>
+          </div>
+          <div *ngIf="c.extras.length>0" class="extras">
+              <h5>extras:</h5>
+              <ul class="list-group list-group-flush">
+                <li *ngFor="let e of c.extras" class="list-group-item">{{e}}</li>
+              </ul>
+          </div>
+          <div class="card-body2">
+            <h4>Precio: {{c.price}}</h4>
+            <button type="button" class="btn btn-primary" (click)="agregarCarrito($event, u, c)">agregar</button>
+          </div>
+        </div>
+        <div class="card" id="nodisponible" *ngIf="!c.disponible" >
+            <img class="card-img-top" src="{{c.img}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{c.name}}</h5>
+              <p class="card-text">{{c.description}}</p>
+            </div>
+            <div *ngIf="c.extras.length>0" class="extras">
+                <h5>extras:</h5>
+                <ul class="list-group list-group-flush">
+                  <li *ngFor="let e of c.extras" class="list-group-item">{{e}}</li>
+                </ul>
+            </div>
+            <div class="card-body2">
+              <h4>Precio: {{c.price}}</h4>
+              <h1>NO DISPONIBLE</h1>
+            </div>
+          </div>      
+      </span>  
 </div>
   

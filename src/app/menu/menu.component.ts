@@ -10,7 +10,7 @@ import { AuthService } from '../services/auth.service';
 export class MenuComponent implements OnInit {
 
   modo = false; // false;
-  constructor(private as: AuthService, private router: Router) { }
+  constructor(public auth: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -23,8 +23,4 @@ export class MenuComponent implements OnInit {
   toggleModo() {
     this.modo = !this.modo;
   }
-  signOut() {
-    this.as.signOut();
-  }
-
 }

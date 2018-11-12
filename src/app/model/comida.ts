@@ -6,4 +6,5 @@ export interface comida {
     description?: string;
     price?: number;
     img?: string;
+    disponible?: boolean;
 }

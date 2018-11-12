@@ -12,8 +12,6 @@ export class MenuService {
   comidaCollection: AngularFirestoreCollection<comida>;
   comidaDoc: AngularFirestoreDocument<comida>;
   Menu: Observable<comida[]>;
-  extra: {} = {};
-
   constructor(public db: AngularFirestore) {
 
     this.comidaCollection = this.db.collection('Menu', ref => ref);

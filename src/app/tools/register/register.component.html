@@ -11,6 +11,8 @@
         <form [formGroup]="form" (ngSubmit)="register()">
           <label for="email">E-mail:</label>
           <input type="email" formControlName="email">
+          <label for="email">Nombre:</label>
+          <input type="name" formControlName="name">
           <label for="password">Password:</label>
           <input type="password" formControlName="password">  
           <label for="passwordConf">Repeat Password:</label>

@@ -1,0 +1,20 @@
+
+<div class="card" *ngIf="auth.user | async as user">
+  <div class="card-body">
+    <h5 class="card-title">
+      {{c.name}}
+    </h5>
+    <img class="card-img-top" src="{{c.img}}" alt="Card image cap">
+  </div>
+  <div class="extras" *ngIf="c.extras.length>0">
+      <h5>extras:</h5>
+      <ul class="list-group list-group-flush">
+        <li *ngFor="let e of c.extras" class="list-group-item">{{e}} <button type="button" class="btn btn-primary" (click)="eliminarExtra($event,c,e)">&#10060;</button></li>
+      </ul>
+  </div>
+  <div class="card-body2">
+    <h5>Precio: {{c.price}}</h5>
+    <button (click)="deleteComida($event, c, user)" type="button" class="btn btn-primary" >eliminar</button>
+  </div>
+</div>  
+    

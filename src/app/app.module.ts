@@ -9,7 +9,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ScrollbarModule } from 'ngx-scrollbar';
 
-
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -25,6 +24,7 @@ import { ComidaAdminComponent } from './tools/comida-admin/comida-admin.componen
 import { FormularioProductoNuevoComponent } from './tools/formulario-producto-nuevo/formulario-producto-nuevo.component';
 import { FormularioEditarProductoComponent } from './tools/formulario-editar-producto/formulario-editar-producto.component';
 import { NuevoExtraComponent } from './tools/nuevo-extra/nuevo-extra.component';
+import { ComidaCarritoComponent } from './tools/comida-carrito/comida-carrito.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +42,7 @@ import { NuevoExtraComponent } from './tools/nuevo-extra/nuevo-extra.component';
     FormularioProductoNuevoComponent,
     FormularioEditarProductoComponent,
     NuevoExtraComponent,
+    ComidaCarritoComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +56,7 @@ import { NuevoExtraComponent } from './tools/nuevo-extra/nuevo-extra.component';
     FormsModule,
     ReactiveFormsModule,
     AngularFireAuthModule,
-    ScrollbarModule
+    ScrollbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

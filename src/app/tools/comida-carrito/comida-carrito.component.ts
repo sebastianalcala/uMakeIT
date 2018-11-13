@@ -10,16 +10,25 @@ import { comida } from 'src/app/model/comida';
 })
 export class ComidaCarritoComponent implements OnInit {
   @Input() c;
+  @Input() i;
   constructor(public auth: AuthService) {}
   ngOnInit() {
   }
   // tslint:disable-next-line:no-shadowed-variable
   deleteComida(event, comida: comida , user: user) {
-    const index: number = user.carrito.indexOf(comida);
-    console.log(index);
+    const index = this.i;
     if (index !== -1) {
       user.carrito.splice(index, 1);
     }
+    user.totalPagar -= comida.price;
     this.auth.updateUser(user);
   }
+    // tslint:disable-next-line:no-shadowed-variable
+    eliminarExtra(event, comida: comida , user: user , ie) {
+      const index = ie;
+      if (index !== -1) {
+        user.carrito[this.i].extras.splice(index, 1);
+      }
+      this.auth.updateUser(user);
+    }
 }

@@ -81,6 +81,13 @@ $borders: 2px;
 }
 header{
     grid-row: 50px 50px;
+    img{
+        position: relative;
+        height: 40px;
+        width: 40px;
+        margin: 15px;
+        z-index: 2;
+    }
     #dropdown{
         width: 100%;
         text-align: end;
@@ -97,6 +104,7 @@ header{
             color: color(acento);
         }
         .dropdown-content {
+            margin-top: 10px;
             display: none;
             position: absolute;
             top: 50px;
@@ -144,11 +152,12 @@ header{
 main{
     div#menu-layout{
         width: 100%;
-        animation: fadeIn 6s;
+        animation: fadeIn 4s;
     }
 }
 
 div#b-footer{
+    
     button{
         text-transform: uppercase;
         font-weight: bolder;

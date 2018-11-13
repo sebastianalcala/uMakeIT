@@ -2,9 +2,9 @@
 <div class="bloque" *ngIf="auth.user | async as user">
     <header>
         <div id="dropdown">
-            <a class="dropbtn">{{user.name}} &#9776;</a>
+            <a class="dropbtn"><img src="{{user.photoURL}}" alt="">{{user.name}} &#9776;</a>
             <div class="dropdown-content">
-                <a >clave</a>
+                <a (click)="cambiarClave(user)">clave</a>
                 <a (click)="compras()">compras</a>
                 <a  (click)="menu()" >menu</a>
                 <a (click)="auth.signOut()">salir</a>
@@ -14,12 +14,12 @@
     </header>
     <main>
         <div class="orden">
-            <span *ngFor="let comida of user.carrito">
-                <app-comida-carrito [c]=comida></app-comida-carrito>
+            <span *ngFor="let comida of user.carrito; let i = index">
+                <app-comida-carrito [c]=comida [i]= i></app-comida-carrito>
             </span>
         </div>
         <div class="f-detallada">
-            <app-factura-detallada></app-factura-detallada>
+            <app-factura-detallada [monto] = user.totalPagar></app-factura-detallada>
         </div>
     </main>
     <div id="comprar">

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { user } from '../model/user';
 
 @Component({
   selector: 'app-menu',
@@ -22,5 +23,9 @@ export class MenuComponent implements OnInit {
   }
   toggleModo() {
     this.modo = !this.modo;
+  }
+  // tslint:disable-next-line:no-shadowed-variable
+  cambiarClave(user: user) {
+    this.auth.cambiarClave(user);
   }
 }

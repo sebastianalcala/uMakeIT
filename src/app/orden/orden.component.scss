@@ -10,8 +10,7 @@ $colors:(
 $desktop: 1200px;
 $cambio1: 840px;
 $padding: 15px;
-$borders: 4px;
-$margin: 50px;
+$borders: 2px;
 
 // funciones:
 @function color($color-name){//funcion para dar color
@@ -21,12 +20,23 @@ $margin: 50px;
     @media (min-width:#{$desktop}){
         @content;
     }    
-}
+};
 @mixin cambio1 {//hace la pagina web responsive
     @media (min-width:#{$cambio1}){
         @content;
     }    
 };
+@keyframes fadeIn{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@keyframes filterIn{
+    from{filter: blur(0);
+        -webkit-filter: blur(0);}
+    to{filter: blur(8px);
+        -webkit-filter: blur(8px);}
+}
+
 
 
 //classes:
@@ -37,9 +47,10 @@ $margin: 50px;
     width: 100%;
     height: 100%;
     position: fixed;
-    z-index: -1; 
+    z-index: -1;  
+    animation: filterIn 0s;
     filter: blur(8px);
-    -webkit-filter: blur(8px);
+        -webkit-filter: blur(8px);
 }
 .bloque{
     position: absolute;
@@ -52,6 +63,7 @@ $margin: 50px;
         grid-row: 1;
         display: grid;
         width: 100%;
+        animation: fadeIn 1s;
     }
     main{
         position: relative;
@@ -69,6 +81,13 @@ $margin: 50px;
 }
 header{
     grid-row: 50px 50px;
+    img{
+        position: relative;
+        height: 40px;
+        width: 40px;
+        margin: 15px;
+        z-index: 2;
+    }
     #dropdown{
         width: 100%;
         text-align: end;
@@ -85,6 +104,7 @@ header{
             color: color(acento);
         }
         .dropdown-content {
+            margin-top: 10px;
             display: none;
             position: absolute;
             top: 50px;
@@ -137,7 +157,10 @@ main{
     };
     
     div.orden{
+        animation: fadeIn 4s;
         grid-column: 1;
+        width: 100%;
+        z-index: 0;
         // display: grid;
         // grid-template-columns: 1fr;
         // grid-row-gap: $margin;
@@ -151,11 +174,16 @@ main{
         // };
     }
     div.f-detallada{
+        
+        animation: fadeIn 2s;
         align-self: center;
         justify-self: center;
         grid-column: 1;
         @include cambio1{
             grid-column: 2;
+            position: fixed;
+            right: 15%;
+            top: 50%;
         };
         
     }

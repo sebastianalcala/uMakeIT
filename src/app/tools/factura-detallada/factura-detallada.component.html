@@ -3,9 +3,9 @@
       Factura Detallada
     </div>
     <div class="card-body">
-      <h4 class="card-title">TOTAL: </h4>
-      <h4 class="card-text">IVA: </h4>
-      <h3>TOTAL + IVA = </h3>
+      <h4 class="card-title">TOTAL: {{monto}} BsS. </h4>
+      <h4 class="card-text">IVA: {{(monto*12)/100}} BsS.</h4>
+      <h3>TOTAL + IVA = {{monto+(monto*12)/100}} BsS.</h3>
     </div>
     <div class="card-footer text-muted">
         <a href="#" class="btn btn-primary"><img src="../../../assets/img/paypal-logo.png" alt=""></a>

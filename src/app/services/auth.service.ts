@@ -59,6 +59,7 @@ export class AuthService {
         subscriber: true,
       },
       carrito: [],
+      totalPagar: 0,
     };
     return userRef.set(data, {merge: true});
   }
@@ -67,6 +68,14 @@ export class AuthService {
   signOut() {
     this.afAuth.auth.signOut().then(() => {
         this.router.navigate(['']);
+    });
+  }
+  // tslint:disable-next-line:no-shadowed-variable
+  cambiarClave(user: user) {
+    this.afAuth.auth.sendPasswordResetEmail(user.email).then(function() {
+      // Email sent.
+    }).catch(function(error) {
+      // An error happened.
     });
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { user } from '../model/user';
 
 
 @Component({
@@ -19,5 +20,9 @@ export class OrdenComponent implements OnInit {
   }
   compras() {
     // this.router.navigate(['/compras']);
+  }
+  // tslint:disable-next-line:no-shadowed-variable
+  cambiarClave(user: user) {
+    this.auth.cambiarClave(user);
   }
 }

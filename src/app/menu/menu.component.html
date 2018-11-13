@@ -3,9 +3,9 @@
     <header>
         <div class="logo"><img src="" alt=""></div>
         <div id="dropdown">
-            <a class="dropbtn">{{user.name}} &#9776;</a>
+            <a class="dropbtn"><img src="{{user.photoURL}}" alt="">{{user.name}} &#9776;</a>
             <div class="dropdown-content">
-                <a >clave</a>
+                <a (click)="cambiarClave(user)">clave</a>
                 <a (click)="compras()">compras</a>
                 <a  (click)="comprar()" >orden</a>
                 <a (click)="auth.signOut()">salir</a>
@@ -26,7 +26,7 @@
         </div>  
     </main>
     <div id="b-footer" *ngIf="!modo">
-        <button (click)=comprar() type="button" class="btn btn-primary">checkout</button>
+        <button (click)=comprar() type="button" class="btn btn-primary">checkout: {{user.totalPagar}} BsS.</button>
     </div>
     <div id="b-footer" *ngIf="modo">
         <app-formulario-producto-nuevo></app-formulario-producto-nuevo>

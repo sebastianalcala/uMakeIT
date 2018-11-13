@@ -9,7 +9,9 @@
   <div class="extras" *ngIf="c.extras.length>0">
       <h5>extras:</h5>
       <ul class="list-group list-group-flush">
-        <li *ngFor="let e of c.extras" class="list-group-item">{{e}} <button type="button" class="btn btn-primary" (click)="eliminarExtra($event,c,e)">&#10060;</button></li>
+        <span *ngFor="let e of c.extras; let ie = index">
+            <li class="list-group-item">{{e}} <button type="button" class="btn btn-primary" (click)="eliminarExtra(event, c , user , ie)">&#10060;</button></li>
+        </span>
       </ul>
   </div>
   <div class="card-body2">

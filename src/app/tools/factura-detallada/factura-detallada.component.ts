@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-factura-detallada',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./factura-detallada.component.scss']
 })
 export class FacturaDetalladaComponent implements OnInit {
-
+  @Input() monto;
   constructor() { }
 
   ngOnInit() {

@@ -13,4 +13,5 @@ export interface user {
     photoURL: string;
     role: Roles;
     carrito: comida[];
+    totalPagar: number;
 }

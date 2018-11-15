@@ -1,0 +1,25 @@
+<div *ngIf="isModalShown" [config]="{ show: true }" (onHidden)="onHidden()" bsModal #autoShownModal="bs-modal"
+     class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-auto-name"  >
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-auto-name" class="modal-title pull-left">Indique Su Nombre</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="Register">
+          <form [formGroup]="form" (ngSubmit)="add2User(u)">
+            <label >Name:</label>
+            <input type="text" formControlName="name" >
+            <!-- <label >Image:</label>
+            <input type="image" formControlName="photoURL" > 
+            <br> -->
+            <button type="button submit" [disabled]="form.invalid" class="btn btn-primary" >Save</button>
+          </form>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>

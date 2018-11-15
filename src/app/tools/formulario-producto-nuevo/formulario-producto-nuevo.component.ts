@@ -41,6 +41,7 @@ export class FormularioProductoNuevoComponent implements OnInit {
     this.extras = [];
     this.comida = {extras: [] = []} as comida;
     this.form.reset();
+    this.modalRef.hide();
   }
   cambiarPag() {
     this.cambiarPagina = !this.cambiarPagina;

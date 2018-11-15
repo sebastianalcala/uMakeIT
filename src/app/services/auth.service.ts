@@ -29,6 +29,15 @@ export class AuthService {
     const provider = new auth.GoogleAuthProvider();
     return this.oAuthLogin(provider);
   }
+  register(email: string, password) {
+    this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(credentials => {
+      this.updateUserData(credentials.user);
+      this.router.navigate(['/menu']);
+    }).catch(function(error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+  }
   logIn(email, password) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password).then(credentials => {
       this.router.navigate(['/menu']);
@@ -78,6 +87,9 @@ export class AuthService {
       // An error happened.
     });
   }
+  getCredentials() {
+    this.getCredentials();
+  }
 
   // tslint:disable-next-line:no-shadowed-variable
   private checkAuthorization(user: user, allowedRoles: string[]): boolean {
@@ -108,6 +120,22 @@ export class AuthService {
   updateUser(user: user) {
     this.userDoc = this.afs.doc(`Users/${user.uid}`);
     this.userDoc.update(user);
+  }
+  // tslint:disable-next-line:no-shadowed-variable
+  add2User(user: user) {
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`Users/${user.uid}`);
+    const data: user = {
+      uid: user.uid,
+      email: user.email,
+      name: user.name,
+      photoURL: 'https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg',
+      role: {
+        subscriber: true,
+      },
+      carrito: user.carrito,
+      totalPagar: user.totalPagar,
+    };
+    return userRef.set(data, {merge: true});
   }
 }
 

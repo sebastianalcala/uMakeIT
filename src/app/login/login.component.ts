@@ -2,7 +2,6 @@ import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import { user } from '../model/user';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,7 +18,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   // tslint:disable-next-line:no-shadowed-variable
-  login(user: user) {
+  login() {
     this.auth.logIn(this.form.value.email, this.form.value.password);
     this.form.reset();
   }

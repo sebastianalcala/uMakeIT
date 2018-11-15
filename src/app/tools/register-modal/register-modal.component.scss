@@ -7,7 +7,8 @@ $colors:(
     tertiary: #bc4123,
     acento: white,
 );
-$desktop: 840px;
+$desktop: 1200px;
+$cambio1: 840px;
 $padding: 15px;
 $borders: 2px;
 
@@ -15,12 +16,25 @@ $borders: 2px;
 @function color($color-name){//funcion para dar color
     @return map-get($colors,$color-name)
 };
-
 @mixin desktop {//hace la pagina web responsive
     @media (min-width:#{$desktop}){
         @content;
-    }
-    
+    }    
+};
+@mixin cambio1 {//hace la pagina web responsive
+    @media (min-width:#{$cambio1}){
+        @content;
+    }    
+};
+@keyframes fadeIn{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@keyframes filter{
+    from{filter: blur(8px);
+        -webkit-filter: blur(8px);}
+    to{filter: blur(0);
+        -webkit-filter: blur(0);}
 }
 
 button{
@@ -78,6 +92,33 @@ button:hover{
             button:hover{
                 background: color(tertiary);
                 border: solid  $borders color(acento);
+            }
+        }
+        div.pagina2{
+            div.input-extra{
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                button{
+                    display: block;
+                    position: relative;
+                    font-size: 1.6em;
+                    border-radius: 30px;
+                    border: 0px;
+                    padding: 0;
+                    width: 60px;
+                    height:60px;
+                    align-self: center;
+                    justify-self: center;
+                }
+            }
+            li{
+                list-style: none;
+                button{
+                    background: none;
+                    border: none;
+                    height: fit-content;
+                    width: fit-content;
+                }
             }
         }
         

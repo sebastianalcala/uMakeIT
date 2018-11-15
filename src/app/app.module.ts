@@ -19,12 +19,13 @@ import { DropdownsComponent } from './tools/dropdowns/dropdowns.component';
 import { NavbarComponent } from './tools/navbar/navbar.component';
 import { OrdenComponent } from './orden/orden.component';
 import { FacturaDetalladaComponent } from './tools/factura-detallada/factura-detallada.component';
-import { RegisterComponent } from './tools/register/register.component';
 import { ComidaAdminComponent } from './tools/comida-admin/comida-admin.component';
 import { FormularioProductoNuevoComponent } from './tools/formulario-producto-nuevo/formulario-producto-nuevo.component';
 import { FormularioEditarProductoComponent } from './tools/formulario-editar-producto/formulario-editar-producto.component';
 import { NuevoExtraComponent } from './tools/nuevo-extra/nuevo-extra.component';
 import { ComidaCarritoComponent } from './tools/comida-carrito/comida-carrito.component';
+import { RegisterModalComponent } from './tools/register-modal/register-modal.component';
+import { Register2Component } from './tools/register2/register2.component';
 
 @NgModule({
   declarations: [
@@ -37,12 +38,13 @@ import { ComidaCarritoComponent } from './tools/comida-carrito/comida-carrito.co
     NavbarComponent,
     OrdenComponent,
     FacturaDetalladaComponent,
-    RegisterComponent,
     ComidaAdminComponent,
     FormularioProductoNuevoComponent,
     FormularioEditarProductoComponent,
     NuevoExtraComponent,
     ComidaCarritoComponent,
+    RegisterModalComponent,
+    Register2Component,
   ],
   imports: [
     BrowserModule,

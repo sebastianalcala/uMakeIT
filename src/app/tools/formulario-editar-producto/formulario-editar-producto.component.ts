@@ -52,6 +52,7 @@ export class FormularioEditarProductoComponent implements OnInit {
     }
     this.form.reset();
     this.comida = {};
+    this.modalRef.hide();
   }
 
 }

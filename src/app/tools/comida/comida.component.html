@@ -14,7 +14,7 @@
           </div>
           <div class="card-body2">
             <h4>Precio: {{c.price}}</h4>
-            <button type="button" class="btn btn-primary" (click)="agregarCarrito($event, u, c)">agregar</button>
+            <button type="button" class="btn btn-primary" (click)="cs.add2Cart(event, u, c);">agregar</button>
           </div>
         </div>
         <div class="card" id="nodisponible" *ngIf="!c.disponible" >

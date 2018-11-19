@@ -1,0 +1,240 @@
+// variables:
+$colors:(
+    primary: #0b172a,
+    primary-light: lighten(#0b172a,40%),
+    primary-dark: darken(#0b172a,40%),
+    secondary: #463940,
+    tertiary: #bc4123,
+    acento: white,
+);
+$desktop: 1200px;
+$cambio1: 840px;
+$padding: 15px;
+$borders: 2px;
+
+// funciones:
+@function color($color-name){//funcion para dar color
+    @return map-get($colors,$color-name)
+};
+@mixin desktop {//hace la pagina web responsive
+    @media (min-width:#{$desktop}){
+        @content;
+    }    
+};
+@mixin cambio1 {//hace la pagina web responsive
+    @media (min-width:#{$cambio1}){
+        @content;
+    }    
+};
+@keyframes fadeIn{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@keyframes filterIn{
+    from{filter: blur(0);
+        -webkit-filter: blur(0);}
+    to{filter: blur(8px);
+        -webkit-filter: blur(8px);}
+}
+
+
+
+//classes:
+#fondo{
+    background-image: url("../../assets/img/fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;  
+    animation: filterIn 0s;
+    filter: blur(8px);
+        -webkit-filter: blur(8px);
+}
+.bloque{
+    position: absolute;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: max-content;
+    header{
+        z-index: 2;
+        grid-row: 1;
+        display: grid;
+        width: 100%;
+        animation: fadeIn 1s;
+    }
+    main{
+        position: relative;
+        grid-row: 2;
+        display: grid;
+        align-items: flex-start;
+        justify-items: center;
+    }
+    div#comprar{
+        z-index: 2;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+}
+header{
+    grid-row: 50px 50px;
+    img{
+        position: relative;
+        height: 40px;
+        width: 40px;
+        margin: 15px;
+        z-index: 2;
+    }
+    #dropdown{
+        width: 100%;
+        text-align: end;
+        grid-row: 1;
+        padding: 0 $padding;
+        justify-self: end;
+        background-color: color(primary);
+        a{
+            color: color(tertiary);
+            font-size: 2em;
+            cursor: pointer;
+        }
+        a:hover{
+            color: color(acento);
+        }
+        .dropdown-content {
+            margin-top: 10px;
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            left: 0;
+            background-color: color(primary);
+            box-shadow: 0px 20px 20px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            a{
+                font-size: 1em;
+                text-transform: uppercase;
+                // font-weight: bold;
+                color: color(tertiary);
+                padding: $padding;
+                text-decoration: none;
+                display: block;
+                cursor: pointer;
+            }
+        }
+        .dropdown-content a:hover {
+            background-color:color(secondary); 
+            border: solid $borders color(tertiary);
+            color: color(acento);
+        }  
+    }
+    #dropdown:hover .dropdown-content {display: block;}
+    div.title{
+        width: 100%;
+        grid-row: 2;
+        align-self: center;
+        justify-self: center;
+        text-align: center;
+        text-transform: uppercase;
+        padding: $padding;
+        color: color(tertiary);
+        h1{
+            margin: 0;
+            background: color(secondary);
+            font-weight: bold;
+            border: $borders solid color(primary);
+        }
+    }    
+}
+
+main{
+    display: grid;
+    .tabla-historial{
+        animation: fadeIn 1s;
+        display: grid;
+        width: 90%;
+        height: fit-content;
+        background-color: color(primary);
+        border: solid color(tertiary);
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-auto-rows: min-content;
+        .id{
+            grid-column: 1;
+            text-align: center;
+            color: color(tertiary);
+            font-weight: bold;
+            border-bottom: solid color(tertiary); 
+            border-right: solid color(tertiary); 
+            width: 100%;
+            height: auto;
+            text-transform: uppercase;           
+        }
+        .fecha{
+            grid-column: 2;
+            text-align: center;
+            font-weight: bold;
+            color: color(tertiary);
+            border-bottom: solid color(tertiary); 
+            border-right: solid color(tertiary); 
+            width: 100%;
+            height: auto;
+            text-transform: uppercase;                       
+        }
+        .precio{
+            grid-column: 3;
+            text-align: center;
+            font-weight: bold;
+            color: color(tertiary);
+            border-bottom: solid color(tertiary); 
+            border-right: solid color(tertiary); 
+            width: 100%;
+            height: auto;
+            text-transform: uppercase;                       
+        }
+        .comprar{
+            grid-column: 4;
+            text-align: center;
+            font-weight: bold;
+            color: color(tertiary);
+            border-bottom: solid color(tertiary); 
+            width: 100%;
+            height: auto;
+            text-transform: uppercase;           
+        }
+        #historial{
+            grid-column: 1/5;
+            display: grid;
+            width: 100%;
+            height: 100%;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-auto-rows: min-content;
+            button{
+                text-transform: uppercase;
+                font-weight: bolder;
+                color: color(tertiary);
+                background: color(acento);
+                padding: $padding;
+                margin: .6em;
+                text-align: center; 
+                border: $borders solid color(tertiary);
+                opacity: 0.5;
+                z-index: 2;
+                height: auto;
+                width: auto;
+            }
+            button:hover{
+                background: color(secondary);
+                border: $borders color(primary) solid;
+                opacity: 1;    
+            }
+        }
+        
+    }
+}
+
+
+
+
+

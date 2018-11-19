@@ -1,0 +1,31 @@
+<div id="fondo"></div>
+<div class="bloque" *ngIf="auth.user | async as user">
+    <header>
+        <div id="dropdown">
+            <a class="dropbtn"><img src="{{user.photoURL}}" alt="">{{user.name}} &#9776;</a>
+            <div class="dropdown-content">
+                <a (click)="cambiarClave(user)">clave</a>
+                <a (click)="comprar()">orden</a>
+                <a  (click)="menu()" >menu</a>
+                <a (click)="auth.signOut()">salir</a>
+            </div>
+        </div>
+        <div class="title"><h1>historial de compras</h1></div>
+    </header>
+    <main>
+      <div class="tabla-historial">
+        <div class="id">Numero de Compra</div>
+        <div class="fecha">Fecha de Compra</div>
+        <div class="precio">Precio</div>
+        <div class="comprar">Comprar</div>
+        <div id="historial" *ngFor="let orden of user.ordenes">
+          <div class="id">{{orden.id}}</div>
+          <div class="fecha">{{orden.date}}</div>
+          <div class="precio">{{orden.monto}}</div>
+          <div class="comprar">
+            <button type="button" class="btn btn-primary" (click)="cs.ordenarCompra($event, user, orden)">comprar</button> 
+          </div>
+        </div>        
+      </div>
+    </main>
+</div>

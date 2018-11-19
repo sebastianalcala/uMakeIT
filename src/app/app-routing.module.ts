@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { OrdenComponent } from './orden/orden.component';
 import { AuthGuard } from './services/auth.guard';
+import { ComprasComponent } from './compras/compras.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,11 @@ const routes: Routes = [
   {
     path: 'orden',
     component: OrdenComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'compras',
+    component: ComprasComponent,
     canActivate: [AuthGuard]
   }
 

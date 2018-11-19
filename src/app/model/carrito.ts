@@ -1,5 +1,7 @@
 import { comida } from './comida';
 
 export interface Carrito {
-    compra: comida[];
+    comida: comida[];
+    monto: number;
+    date: Date;
 }

@@ -13,6 +13,7 @@ import { auth } from 'firebase';
 export class AuthService {
   user: Observable<user>;
   userDoc: AngularFirestoreDocument<user>;
+
   constructor(private router: Router, private afAuth: AngularFireAuth, private afs: AngularFirestore) {
     this.user = this.afAuth.authState.pipe(
       // tslint:disable-next-line:no-shadowed-variable
@@ -24,11 +25,13 @@ export class AuthService {
         }
       })
     );
-   }
-   googleLogin() {
+  }
+
+  googleLogin() {
     const provider = new auth.GoogleAuthProvider();
     return this.oAuthLogin(provider);
   }
+
   register(email: string, password) {
     this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(credentials => {
       this.updateUserData(credentials.user);
@@ -38,6 +41,7 @@ export class AuthService {
       const errorMessage = error.message;
     });
   }
+
   logIn(email, password) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password).then(credentials => {
       this.router.navigate(['/menu']);
@@ -66,19 +70,20 @@ export class AuthService {
       photoURL: user.photoURL,
       role: {
         subscriber: true,
+        admin: false,
       },
-      carrito: [],
-      totalPagar: 0,
+      carrito: {comida: [], monto: 0, date: null},
+      ordenes: [],
     };
     return userRef.set(data, {merge: true});
   }
-
 
   signOut() {
     this.afAuth.auth.signOut().then(() => {
         this.router.navigate(['']);
     });
   }
+
   // tslint:disable-next-line:no-shadowed-variable
   cambiarClave(user: user) {
     this.afAuth.auth.sendPasswordResetEmail(user.email).then(function() {
@@ -86,9 +91,6 @@ export class AuthService {
     }).catch(function(error) {
       // An error happened.
     });
-  }
-  getCredentials() {
-    this.getCredentials();
   }
 
   // tslint:disable-next-line:no-shadowed-variable
@@ -101,6 +103,7 @@ export class AuthService {
     }
     return false;
   }
+
   // tslint:disable-next-line:no-shadowed-variable
   canRead(user: user): boolean {
     const allowed = ['subscriber'];
@@ -132,8 +135,8 @@ export class AuthService {
       role: {
         subscriber: true,
       },
-      carrito: user.carrito,
-      totalPagar: user.totalPagar,
+      carrito: {comida: [], monto: 0, date: null},
+      ordenes: [],
     };
     return userRef.set(data, {merge: true});
   }

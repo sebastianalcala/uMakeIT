@@ -26,6 +26,7 @@ import { NuevoExtraComponent } from './tools/nuevo-extra/nuevo-extra.component';
 import { ComidaCarritoComponent } from './tools/comida-carrito/comida-carrito.component';
 import { RegisterModalComponent } from './tools/register-modal/register-modal.component';
 import { Register2Component } from './tools/register2/register2.component';
+import { ComprasComponent } from './compras/compras.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { Register2Component } from './tools/register2/register2.component';
     ComidaCarritoComponent,
     RegisterModalComponent,
     Register2Component,
+    ComprasComponent,
   ],
   imports: [
     BrowserModule,

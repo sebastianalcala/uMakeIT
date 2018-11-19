@@ -16,18 +16,12 @@ export class ComidaComponent implements OnInit {
   editing = false;
   @Input() u;
 
-  constructor(public ms: MenuService, private cs: CarritoService, public auth: AuthService) {  }
+  constructor(public ms: MenuService, public cs: CarritoService, public auth: AuthService) {  }
 
   ngOnInit() {
       this.ms.getMenu().subscribe(Menu => {
       this.Menu = Menu;
     });
   }
-  // tslint:disable-next-line:no-shadowed-variable
-  agregarCarrito(event, user: user , comida: comida) {
-    console.log(user);
-    this.cs.add2Cart(user, comida);
-  }
-
 
 }

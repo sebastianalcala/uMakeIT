@@ -29,7 +29,7 @@
         </div>  
     </main>
     <div id="b-footer" *ngIf="!modo">
-        <button (click)=comprar() type="button" class="btn btn-primary">checkout: {{user.totalPagar}} BsS.</button>
+        <button (click)=comprar() type="button" class="btn btn-primary">checkout: {{user.carrito.monto}} BsS.</button>
     </div>
     <div id="b-footer" *ngIf="modo">
         <app-formulario-producto-nuevo></app-formulario-producto-nuevo>

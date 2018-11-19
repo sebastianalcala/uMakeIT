@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CarritoService } from 'src/app/services/carrito.service';
 
 @Component({
   selector: 'app-factura-detallada',
@@ -6,8 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./factura-detallada.component.scss']
 })
 export class FacturaDetalladaComponent implements OnInit {
-  @Input() monto;
-  constructor() { }
+  @Input() u;
+
+  constructor(public cs: CarritoService) { }
 
   ngOnInit() {
   }

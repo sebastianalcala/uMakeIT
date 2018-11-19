@@ -14,12 +14,12 @@
     </header>
     <main>
         <div class="orden">
-            <span *ngFor="let comida of user.carrito; let i = index">
+            <span *ngFor="let comida of user.carrito.comida; let i = index">
                 <app-comida-carrito [c]=comida [i]= i></app-comida-carrito>
             </span>
         </div>
         <div class="f-detallada">
-            <app-factura-detallada [monto] = user.totalPagar></app-factura-detallada>
+            <app-factura-detallada [u]= user></app-factura-detallada>
         </div>
     </main>
     <div id="comprar">

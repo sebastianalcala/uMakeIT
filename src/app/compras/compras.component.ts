@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { user } from '../model/user';
-
+import { CarritoService } from '../services/carrito.service';
 
 @Component({
-  selector: 'app-orden',
-  templateUrl: './orden.component.html',
-  styleUrls: ['./orden.component.scss']
+  selector: 'app-compras',
+  templateUrl: './compras.component.html',
+  styleUrls: ['./compras.component.scss']
 })
+export class ComprasComponent implements OnInit {
 
-export class OrdenComponent implements OnInit {
-  constructor(public router: Router, public auth: AuthService) { }
+  constructor(public router: Router, public auth: AuthService , public cs: CarritoService) { }
 
   ngOnInit() {
   }
@@ -20,6 +20,9 @@ export class OrdenComponent implements OnInit {
   }
   compras() {
     this.router.navigate(['/compras']);
+  }
+  comprar() {
+    this.router.navigate(['/orden']);
   }
   // tslint:disable-next-line:no-shadowed-variable
   cambiarClave(user: user) {

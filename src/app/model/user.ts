@@ -1,4 +1,4 @@
-import { comida } from './comida';
+import { Carrito } from './carrito';
 
 export interface Roles {
     subscriber?: boolean;
@@ -12,6 +12,6 @@ export interface user {
     email?: string;
     photoURL: string;
     role: Roles;
-    carrito: comida[];
-    totalPagar: number;
+    carrito: Carrito;
+    ordenes: Carrito[];
 }

@@ -18,10 +18,10 @@
         <div class="fecha">Fecha de Compra</div>
         <div class="precio">Precio</div>
         <div class="comprar">Comprar</div>
-        <div id="historial" *ngFor="let orden of user.ordenes">
-          <div class="id">{{orden.id}}</div>
+        <div id="historial" *ngFor="let orden of user.ordenes; let i=index">
+          <div class="id">{{000+i}}</div>
           <div class="fecha">{{orden.date}}</div>
-          <div class="precio">{{orden.monto}}</div>
+          <div class="precio">{{orden.monto}} BsS.</div>
           <div class="comprar">
             <button type="button" class="btn btn-primary" (click)="cs.ordenarCompra($event, user, orden)">comprar</button> 
           </div>

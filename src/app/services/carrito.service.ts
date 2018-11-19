@@ -3,13 +3,13 @@ import { user } from '../model/user';
 import { AuthService } from './auth.service';
 import { comida } from '../model/comida';
 import { Router } from '@angular/router';
+import {formatDate } from '@angular/common';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarritoService {
-
   constructor(private auth: AuthService, private router: Router) {
   }
   // tslint:disable-next-line:no-shadowed-variable
@@ -35,9 +35,11 @@ export class CarritoService {
   }
   // tslint:disable-next-line:no-shadowed-variable
   guardarOrden(event, user: user) {
+    const date = new Date();
+    user.carrito.date = formatDate(date, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
     user.ordenes.push(user.carrito);
     this.auth.updateUser(user);
-    user.carrito = {comida: [], monto: 0, date: null};
+    user.carrito = {comida: [], monto: 0, date: null };
     this.auth.updateUser(user);
   }
   // tslint:disable-next-line:no-shadowed-variable

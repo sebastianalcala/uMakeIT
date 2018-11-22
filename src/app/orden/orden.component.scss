@@ -187,7 +187,8 @@ main{
         z-index: 0;
     }
     div.f-detallada{
-        
+        margin: 10px;
+        z-index: 1;
         animation: fadeIn 2s;
         align-self: center;
         justify-self: center;
@@ -195,8 +196,8 @@ main{
         @include cambio1{
             grid-column: 2;
             position: fixed;
-            right: 15%;
-            top: 50%;
+            right: 5%;
+            top: 25%;
         };
         
     }

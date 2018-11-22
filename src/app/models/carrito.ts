@@ -4,4 +4,5 @@ export interface Carrito {
     comida: comida[];
     monto: number;
     date: String;
+    entregado?: boolean;
 }

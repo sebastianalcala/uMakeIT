@@ -1,21 +1,21 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/autentificacion/auth.service';
 import { user } from '../models/user';
-import { SearchService } from '../services/search/search.service';
-import { Subject } from 'rxjs';
-
+import { ComidaComponent } from '../tools/comida/comida.component';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements AfterViewInit {
   modo = false; // false;
   mostrar = false;
-  constructor(public auth: AuthService, private router: Router, public ss: SearchService) { }
+  searchterm: string;
+  @ViewChild(ComidaComponent) comida;
+  constructor(public auth: AuthService, private router: Router) { }
 
-  ngOnInit() {
+  ngAfterViewInit() {
   }
   comprar() {
     this.router.navigate(['/orden']);
@@ -33,4 +33,5 @@ export class MenuComponent implements OnInit {
     }
     return this.mostrar = false;
   }
+
 }

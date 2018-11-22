@@ -2,7 +2,7 @@
 <div class="bloque" *ngIf="auth.user | async as user"  >
     <header>
         <div id="dropdown">
-            <input type="text"  (keydown)="ss.search($event)" placeholder="Buscar comida...">
+            <input type="text" placeholder="Buscar comida..." [(ngModel)]="searchterm " (ngModelChange)="comida.search($event)" >
             <a class="dropbtn"><img src="{{user.photoURL}}" alt="">{{user.name}} &#9776;
                 <div class="dropdown-content">
                     <a (click)="auth.cambiarClave(user);">clave</a>

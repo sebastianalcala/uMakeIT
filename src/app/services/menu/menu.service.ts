@@ -3,7 +3,6 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { comida } from '../../models/comida';
 import { Observable } from 'rxjs';
 import { map} from 'rxjs/operators';
-import { query } from '@angular/core/src/render3/query';
 
 @Injectable({
   providedIn: 'root'

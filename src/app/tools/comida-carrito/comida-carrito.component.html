@@ -8,8 +8,8 @@
   </div>
   <div class="extras" *ngIf="c.extras.length>0">
       <h5>extras:</h5>
-      <ul class="list-group list-group-flush">
-        <span *ngFor="let e of c.extras; let ie = index">
+      <ul class="list-group list-group-flush" >
+        <span *ngFor="let e of c.extras; let ie = index" id="extras">
             <li class="list-group-item">{{e}} <button type="button" class="btn btn-primary" (click)="cs.deleteExtra(event, user, i, ie)">&#10060;</button></li>
         </span>
       </ul>

@@ -37,6 +37,7 @@ export class CarritoService {
   guardarOrden(user: user) {
     const date = new Date();
     user.carrito.date = formatDate(date, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
+    user.carrito.entregado = false;
     user.ordenes.push(user.carrito);
     this.auth.updateUser(user);
     user.carrito = {comida: [], monto: 0, date: null };

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CarritoService } from 'src/app/services/carrito.service';
+import { CarritoService } from 'src/app/services/carrito/carrito.service';
 
 @Component({
   selector: 'app-factura-detallada',

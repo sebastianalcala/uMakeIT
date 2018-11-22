@@ -2,9 +2,9 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-
-import { MenuService } from '../../services/menu.service';
-import { comida } from 'src/app/model/comida';
+import { MenuService } from '../../services/menu/menu.service';
+import { comida } from 'src/app/models/comida';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-formulario-producto-nuevo',
@@ -55,4 +55,5 @@ export class FormularioProductoNuevoComponent implements OnInit {
       this.extras.splice(index, 1);
     }
   }
+
 }

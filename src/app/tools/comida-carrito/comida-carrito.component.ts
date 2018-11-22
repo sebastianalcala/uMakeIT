@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
-import { CarritoService } from 'src/app/services/carrito.service';
+import { AuthService } from 'src/app/services/autentificacion/auth.service';
+import { CarritoService } from 'src/app/services/carrito/carrito.service';
 
 @Component({
   selector: 'app-comida-carrito',

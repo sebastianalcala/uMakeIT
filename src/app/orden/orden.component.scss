@@ -89,18 +89,41 @@ header{
         z-index: 2;
     }
     #dropdown{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
         width: 100%;
         text-align: end;
         grid-row: 1;
         padding: 0 $padding;
         justify-self: end;
         background-color: color(primary);
+        input{
+            grid-row: 2;
+            grid-column: 1/4;
+            width: 100%;
+            padding: $padding;
+            align-self: center;
+            justify-self: center;
+            height: 60%;
+            @include cambio1{
+                grid-row: 1;
+                grid-column: 1;
+                width: 80%;
+            };
+        }
         a{
+            grid-row: 1;
+            grid-column: 1/4;
             color: color(tertiary);
             font-size: 2em;
             cursor: pointer;
+            @include cambio1{
+                grid-row: 1;
+                grid-column: 2/4;                
+            };
         }
-        a:hover{
+        a:hover .dropdown-content {
+            display: block;
             color: color(acento);
         }
         .dropdown-content {
@@ -114,7 +137,7 @@ header{
             box-shadow: 0px 20px 20px 0px rgba(0,0,0,0.2);
             z-index: 1;
             a{
-                font-size: 1em;
+                font-size: 0.5em;
                 text-transform: uppercase;
                 // font-weight: bold;
                 color: color(tertiary);
@@ -130,8 +153,9 @@ header{
             color: color(acento);
         }  
     }
-    #dropdown:hover .dropdown-content {display: block;}
+    
     div.title{
+        animation: fadeIn 1s;
         width: 100%;
         grid-row: 2;
         align-self: center;
@@ -161,17 +185,6 @@ main{
         grid-column: 1;
         width: 100%;
         z-index: 0;
-        // display: grid;
-        // grid-template-columns: 1fr;
-        // grid-row-gap: $margin;
-        // align-items: center;
-        // justify-items: center;
-        // @include cambio1{
-        //     grid-template-columns: 1fr 1fr;
-        // };
-        // @include desktop{
-        //     grid-template-columns: 1fr 1fr 1fr;  
-        // };
     }
     div.f-detallada{
         
@@ -198,7 +211,6 @@ div#comprar{
         margin: .6em;
         text-align: center; 
         border: $borders solid color(tertiary);
-        opacity: 0.5;
         z-index: 2;
     }
     button:hover{

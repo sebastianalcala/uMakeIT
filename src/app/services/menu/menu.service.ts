@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { comida } from '../model/comida';
+import { comida } from '../../models/comida';
 import { Observable } from 'rxjs';
 import { map} from 'rxjs/operators';
+import { query } from '@angular/core/src/render3/query';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,7 @@ export class MenuService {
       }));
       return this.Menu;
   }
+
   // tslint:disable-next-line:no-shadowed-variable
   deleteComida(comida: comida) {
     this.comidaDoc = this.db.doc(`Menu/${comida.id}`);

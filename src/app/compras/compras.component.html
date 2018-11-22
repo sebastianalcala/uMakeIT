@@ -2,13 +2,14 @@
 <div class="bloque" *ngIf="auth.user | async as user">
     <header>
         <div id="dropdown">
-            <a class="dropbtn"><img src="{{user.photoURL}}" alt="">{{user.name}} &#9776;</a>
+          <a class="dropbtn"><img src="{{user.photoURL}}" alt="">{{user.name}} &#9776;
             <div class="dropdown-content">
                 <a (click)="cambiarClave(user)">clave</a>
-                <a (click)="comprar()">orden</a>
+                <a (click)="compras()">compras</a>
                 <a  (click)="menu()" >menu</a>
                 <a (click)="auth.signOut()">salir</a>
             </div>
+          </a>
         </div>
         <div class="title"><h1>historial de compras</h1></div>
     </header>

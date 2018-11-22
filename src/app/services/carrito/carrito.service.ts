@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { user } from '../model/user';
-import { AuthService } from './auth.service';
-import { comida } from '../model/comida';
+import { user } from '../../models/user';
+import { AuthService } from '../autentificacion/auth.service';
+import { comida } from '../../models/comida';
 import { Router } from '@angular/router';
 import {formatDate } from '@angular/common';
 
@@ -27,14 +27,14 @@ export class CarritoService {
     this.auth.updateUser(user);
   }
   // tslint:disable-next-line:no-shadowed-variable
-  deleteExtra(event, user: user , indexExtra: number, index: number) {
-    if (indexExtra !== -1) {
-      user.carrito.comida[index].extras.splice(indexExtra, 1);
+  deleteExtra(event, user: user , index: number, indexExtra: number) {
+    if (index !== -1) {
+      user.carrito.comida[index].extras.splice(indexExtra , 1);
     }
     this.auth.updateUser(user);
   }
   // tslint:disable-next-line:no-shadowed-variable
-  guardarOrden(event, user: user) {
+  guardarOrden(user: user) {
     const date = new Date();
     user.carrito.date = formatDate(date, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
     user.ordenes.push(user.carrito);

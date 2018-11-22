@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
-import { user } from '../model/user';
+import { AuthService } from '../services/autentificacion/auth.service';
+import { user } from '../models/user';
+import { SearchService } from '../services/search/search.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-menu',
@@ -11,7 +13,7 @@ import { user } from '../model/user';
 export class MenuComponent implements OnInit {
   modo = false; // false;
   mostrar = false;
-  constructor(public auth: AuthService, private router: Router) { }
+  constructor(public auth: AuthService, private router: Router, public ss: SearchService) { }
 
   ngOnInit() {
   }
@@ -23,10 +25,6 @@ export class MenuComponent implements OnInit {
   }
   toggleModo() {
     this.modo = !this.modo;
-  }
-  // tslint:disable-next-line:no-shadowed-variable
-  cambiarClave(user: user) {
-    this.auth.cambiarClave(user);
   }
   // tslint:disable-next-line:no-shadowed-variable
   mostrarRegister2(user: user) {

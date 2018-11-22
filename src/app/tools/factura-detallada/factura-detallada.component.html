@@ -8,6 +8,6 @@
       <h3>TOTAL + IVA = {{u.carrito.monto+(u.carrito.monto*12)/100}} BsS.</h3>
     </div>
     <div class="card-footer text-muted">
-        <a class="btn btn-primary" (click)="cs.guardarOrden($event, u)"><img src="../../../assets/img/paypal-logo.png" alt=""></a>
+        <app-paypalbtn [u] = u [monto] = u.carrito.monto></app-paypalbtn>
     </div>
 </div>

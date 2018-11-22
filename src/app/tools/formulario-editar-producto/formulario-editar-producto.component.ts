@@ -1,6 +1,6 @@
 import { Component, OnInit, TemplateRef, Input } from '@angular/core';
-import { MenuService } from '../../services/menu.service';
-import { comida } from 'src/app/model/comida';
+import { MenuService } from '../../services/menu/menu.service';
+import { comida } from 'src/app/models/comida';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';

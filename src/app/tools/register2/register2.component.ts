@@ -1,8 +1,8 @@
 import { Component, OnInit , ViewChild, Input } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
-import { user } from 'src/app/model/user';
+import { AuthService } from 'src/app/services/autentificacion/auth.service';
+import { user } from 'src/app/models/user';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-register2',

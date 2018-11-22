@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MenuService } from '../../services/menu.service';
-import { comida } from 'src/app/model/comida';
+import { MenuService } from '../../services/menu/menu.service';
+import { comida } from 'src/app/models/comida';
 @Component({
   selector: 'app-nuevo-extra',
   templateUrl: './nuevo-extra.component.html',

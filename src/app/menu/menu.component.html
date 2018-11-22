@@ -1,17 +1,18 @@
 <div id="fondo"></div>
 <div class="bloque" *ngIf="auth.user | async as user"  >
     <header>
-        <div class="logo"><img src="" alt=""></div>
         <div id="dropdown">
-            <a class="dropbtn"><img src="{{user.photoURL}}" alt="">{{user.name}} &#9776;</a>
-            <div class="dropdown-content">
-                <a (click)="cambiarClave(user)">clave</a>
-                <a (click)="compras()">compras</a>
-                <a  (click)="comprar()" >orden</a>
-                <a (click)="auth.signOut()">salir</a>
-                <hr *ngIf="auth.canEdit(user)">
-                <a (click)="toggleModo()" *ngIf="auth.canEdit(user)">modo admin</a>
-            </div>
+            <input type="text"  (keydown)="ss.search($event)" placeholder="Buscar comida...">
+            <a class="dropbtn"><img src="{{user.photoURL}}" alt="">{{user.name}} &#9776;
+                <div class="dropdown-content">
+                    <a (click)="auth.cambiarClave(user);">clave</a>
+                    <a (click)="compras()">compras</a>
+                    <a  (click)="comprar()" >orden</a>
+                    <a (click)="auth.signOut()">salir</a>
+                    <hr *ngIf="auth.canEdit(user)">
+                    <a (click)="toggleModo()" *ngIf="auth.canEdit(user)">modo admin</a>
+                </div>
+            </a>
         </div>
         <div class="title">
             <h1>menu</h1>
@@ -29,7 +30,12 @@
         </div>  
     </main>
     <div id="b-footer" *ngIf="!modo">
-        <button (click)=comprar() type="button" class="btn btn-primary">checkout: {{user.carrito.monto}} BsS.</button>
+        <button (click)=comprar() type="button" class="btn btn-primary" id="normal" *ngIf="user.carrito.monto == 0">
+            checkout: 0 BsS.
+        </button>
+        <button (click)=comprar() type="button" class="btn btn-primary" id="active" *ngIf="user.carrito.monto != 0">
+            checkout: {{user.carrito.monto}} BsS.
+        </button>
     </div>
     <div id="b-footer" *ngIf="modo">
         <app-formulario-producto-nuevo></app-formulario-producto-nuevo>

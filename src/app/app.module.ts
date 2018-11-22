@@ -27,6 +27,7 @@ import { ComidaCarritoComponent } from './tools/comida-carrito/comida-carrito.co
 import { RegisterModalComponent } from './tools/register-modal/register-modal.component';
 import { Register2Component } from './tools/register2/register2.component';
 import { ComprasComponent } from './compras/compras.component';
+import { PaypalbtnComponent } from './tools/paypalbtn/paypalbtn.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ComprasComponent } from './compras/compras.component';
     RegisterModalComponent,
     Register2Component,
     ComprasComponent,
+    PaypalbtnComponent,
   ],
   imports: [
     BrowserModule,

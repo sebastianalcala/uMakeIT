@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
-import { user } from '../model/user';
-import { CarritoService } from '../services/carrito.service';
+import { AuthService } from '../services/autentificacion/auth.service';
+import { user } from '../models/user';
+import { CarritoService } from '../services/carrito/carrito.service';
 
 @Component({
   selector: 'app-compras',

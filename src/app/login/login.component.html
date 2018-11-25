@@ -2,21 +2,21 @@
 <main>
     <section id="bloque">
         <div id="logo">
-            <a routerLink=""><img src="../../assets/img/logo-login.png" alt=""></a>
+            <a routerLink=""><img src="../../assets/img/logo.png" alt=""></a>
         </div>
         <form [formGroup]="form" (ngSubmit)="login()">
             <div id="login">
-                <label for="email">E-mail:</label>
+                <label for="email">correo electronico</label>
                 <input type="text" formControlName="email" >
-                <label for="password">Password:</label>
+                <label for="password">contraseña</label>
                 <input type="password" formControlName="password">  
             </div>
-            <button  type="button submit" class="btn btn-primary">login</button>
+            <button  type="button submit" class="btn btn-primary">iniciar sesion</button>
+            <app-register-modal id="register" ></app-register-modal>
         </form>
-        
+        <div class="registers">
+            <button (click)="auth.googleLogin()" type="button" class="btn btn-primary" id="googlebtn"><img src="../../assets/img/google.png" alt=""></button>
+            <button (click)="auth.facebookLogin()" type="button" class="btn btn-primary" id="fcbkbtn"><img src="../../assets/img/facebook.png" alt=""></button>
+        </div>   
     </section>
-    <div class="googleLogin">
-        <button (click)="auth.googleLogin()" type="button" class="btn btn-primary" id="googlebtn">google</button>
-        <app-register-modal ></app-register-modal>
-    </div>   
 </main>

@@ -28,7 +28,6 @@ export class MenuService {
       }));
       return this.Menu;
   }
-
   // tslint:disable-next-line:no-shadowed-variable
   deleteComida(comida: comida) {
     this.comidaDoc = this.db.doc(`Menu/${comida.id}`);

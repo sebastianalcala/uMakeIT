@@ -2,21 +2,24 @@
 <div class="bloque" *ngIf="auth.user | async as user">
     <header>
         <div id="dropdown">
-          <a class="dropbtn"><img src="{{user.photoURL}}" alt="">{{user.name}} &#9776;
+          <img src="../../assets/img/logo.png" (click)="menu()" class="logo">
+          <a class="dropbtn">
+            <img src="{{user.photoURL}}" id="ppic">{{user.name}} &#9776;
             <div class="dropdown-content">
-                <a (click)="cambiarClave(user)">clave</a>
-                <a (click)="compras()">compras</a>
-                <a  (click)="menu()" >menu</a>
-                <a (click)="auth.signOut()">salir</a>
+              <a  (click)="menu()" >menu</a>
+              <a (click)="compras()">historial  de compras</a>
+              <a  (click)="orden()" >carrito: {{user.carrito.monto}} BsS.</a>
+              <a (click)="auth.cambiarClave(user);">cambiar clave</a>
+              <a (click)="auth.signOut()">salir</a>
             </div>
           </a>
         </div>
-        <div class="title"><h1>historial de compras</h1></div>
+        <div class="title"><h1>Historial de Compras</h1></div>
     </header>
     <main>
       <div class="tabla-historial">
-        <div class="id">Numero de Compra</div>
-        <div class="fecha">Fecha de Compra</div>
+        <div class="id">#</div>
+        <div class="fecha">date</div>
         <div class="entregado" >estado</div>
         <div class="precio">Precio</div>
         <div class="comprar">Comprar</div>
@@ -27,7 +30,7 @@
           <div class="no-entregado" *ngIf="!orden.entregado">en espera</div>
           <div class="precio">{{orden.monto}} BsS.</div>
           <div class="comprar">
-            <button type="button" class="btn btn-primary" (click)="cs.ordenarCompra($event, user, orden)">comprar</button> 
+            <a (click)="cs.ordenarCompra($event, user, orden)">$</a> 
           </div>
         </div>        
       </div>

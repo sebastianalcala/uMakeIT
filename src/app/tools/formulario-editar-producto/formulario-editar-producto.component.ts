@@ -51,7 +51,7 @@ export class FormularioEditarProductoComponent implements OnInit {
       this.ms.updateComida(this.comida);
     }
     this.form.reset();
-    this.comida = {};
+    this.comida = {extrasSeleccionados: [] = []};
     this.modalRef.hide();
   }
 

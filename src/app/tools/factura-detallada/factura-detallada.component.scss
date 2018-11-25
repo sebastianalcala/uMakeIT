@@ -31,6 +31,17 @@ $borders: 2px;
     color: color(acento);
     border: $borders solid color(tertiary);
     .card-body{
+        padding: 0;
+        .card-title{
+            margin: 10px;
+            font-size: 1.2em;
+        }
+        .card-text{
+            font-size: 1em;
+        }
+        h3{
+            font-size: 1.3em;
+        }
         color: color(tertiary);
         background: color(acento);
     }
@@ -39,6 +50,7 @@ $borders: 2px;
         
     }
     .card-footer{
+        padding: 0;
         background: color(primary);
         a{
             background: color(acento);
@@ -49,5 +61,26 @@ $borders: 2px;
         img{
             width:50px;
         }
+    }
+    div#comprar{
+        button{
+            text-transform: uppercase;
+            font-weight: bolder;
+            color: color(tertiary);
+            background: color(acento);
+            // padding: $padding;
+            margin: .6em;
+            text-align: center; 
+            font-size: .7em;
+            border: $borders solid color(tertiary);
+            z-index: 2;
+        }
+        button:hover{
+            background: color(tertiary);
+            border: $borders color(primary) solid;
+            color: color(acento);
+            opacity: 1;    
+        }
+        
     }
 }

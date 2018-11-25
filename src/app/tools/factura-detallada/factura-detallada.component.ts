@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CarritoService } from 'src/app/services/carrito/carrito.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-factura-detallada',
@@ -9,9 +10,12 @@ import { CarritoService } from 'src/app/services/carrito/carrito.service';
 export class FacturaDetalladaComponent implements OnInit {
   @Input() u;
 
-  constructor(public cs: CarritoService) { }
+  constructor(public cs: CarritoService, public router: Router) {}
 
   ngOnInit() {
+  }
+  menu() {
+    this.router.navigate(['/menu']);
   }
 
 }

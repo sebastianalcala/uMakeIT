@@ -3,11 +3,14 @@
     <header>
         <div id="dropdown">
             <input type="text" placeholder="Buscar comida..." [(ngModel)]="searchterm " (ngModelChange)="comida.search($event)" >
-            <a class="dropbtn"><img src="{{user.photoURL}}" alt="">{{user.name}} &#9776;
+            <img src="../../assets/img/logo.png" (click)="menu()" class="logo">
+            <a class="dropbtn">
+                <img src="{{user.photoURL}}" id="ppic">{{user.name}} &#9776;
                 <div class="dropdown-content">
-                    <a (click)="auth.cambiarClave(user);">clave</a>
-                    <a (click)="compras()">compras</a>
-                    <a  (click)="comprar()" >orden</a>
+                    <a  (click)="menu()" >menu</a>
+                    <a (click)="compras()">historial  de compras</a>
+                    <a  (click)="orden()" >carrito: {{user.carrito.monto}} BsS.</a>
+                    <a (click)="auth.cambiarClave(user);">cambiar clave</a>
                     <a (click)="auth.signOut()">salir</a>
                     <hr *ngIf="auth.canEdit(user)">
                     <a (click)="toggleModo()" *ngIf="auth.canEdit(user)">modo admin</a>
@@ -15,7 +18,7 @@
             </a>
         </div>
         <div class="title">
-            <h1>menu</h1>
+            <h1>Menu</h1>
         </div>
     </header>
     <main>
@@ -30,11 +33,11 @@
         </div>  
     </main>
     <div id="b-footer" *ngIf="!modo">
-        <button (click)=comprar() type="button" class="btn btn-primary" id="normal" *ngIf="user.carrito.monto == 0">
-            checkout: 0 BsS.
+        <button (click)=orden() type="button" class="btn btn-primary" id="normal" *ngIf="user.carrito.monto == 0">
+            carrito: 0 BsS.
         </button>
-        <button (click)=comprar() type="button" class="btn btn-primary" id="active" *ngIf="user.carrito.monto != 0">
-            checkout: {{user.carrito.monto}} BsS.
+        <button (click)=orden() type="button" class="btn btn-primary" id="active" *ngIf="user.carrito.monto != 0">
+            carrito: {{user.carrito.monto}} BsS.
         </button>
     </div>
     <div id="b-footer" *ngIf="modo">

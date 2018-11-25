@@ -31,6 +31,10 @@ export class AuthService {
     const provider = new auth.GoogleAuthProvider();
     return this.oAuthLogin(provider);
   }
+  facebookLogin() {
+    const provider = new auth.FacebookAuthProvider();
+    return this.oAuthLogin(provider);
+  }
 
   register(email: string, password) {
     this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(credentials => {

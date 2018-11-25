@@ -13,8 +13,8 @@
               </ul>
           </div>
           <div class="card-body2">
-            <h4>Precio: {{c.price}}</h4>
-            <button type="button" class="btn btn-primary" (click)="cs.add2Cart(event, u, c);">agregar</button>
+            <h4>Precio: {{c.price}} BsS.</h4>
+            <button type="button" class="btn btn-primary" (click)="cs.add2Cart(event, u, c);">agregar al carrito</button>
           </div>
         </div>
         <div class="card" id="nodisponible" *ngIf="!c.disponible" >

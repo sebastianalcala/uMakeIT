@@ -21,7 +21,7 @@ export class ComprasComponent implements OnInit {
   compras() {
     this.router.navigate(['/compras']);
   }
-  comprar() {
+  orden() {
     this.router.navigate(['/orden']);
   }
   // tslint:disable-next-line:no-shadowed-variable

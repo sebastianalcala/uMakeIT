@@ -9,7 +9,7 @@ $colors:(
 );
 $desktop: 1200px;
 $cambio1: 840px;
-$padding: 15px;
+$padding: 10px;
 $borders: 2px;
 
 // funciones:
@@ -37,21 +37,25 @@ $borders: 2px;
         -webkit-filter: blur(0);}
 }
 
-button{
-    text-transform: uppercase;
+.txt{
+    margin: 10px;
+    font-size: .7em;
+    color: blue($color: #1b28e4);
+    text-align: center;     
+
+}
+a{
     display: block;
     grid-row: 3;
     text-decoration: none;
-    color: white;
-    background: color(primary);
+    color: blue($color: #1b28e4);
     padding: $padding;
     margin: .6em;
     text-align: center;     
-    border: $borders solid color(tertiary);
+    font-size: .9em;
 }
-button:hover{
-    background: color(tertiary);
-    border: $borders color(acento) solid;    
+a:hover{
+    cursor: pointer;
 }
 .modal-header{
     color: color(tertiary);

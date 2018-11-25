@@ -9,6 +9,7 @@ $colors:(
 );
 $desktop: 1200px;
 $cambio1: 840px;
+$cambio2: 450px;
 $padding: 15px;
 $borders: 2px;
 
@@ -23,6 +24,11 @@ $borders: 2px;
 };
 @mixin cambio1 {//hace la pagina web responsive
     @media (min-width:#{$cambio1}){
+        @content;
+    }    
+};
+@mixin cambio2 {//hace la pagina web responsive
+    @media (min-width:#{$cambio2}){
         @content;
     }    
 };
@@ -81,46 +87,90 @@ $borders: 2px;
 }
 header{
     grid-row: 50px 50px;
-    img{
-        position: relative;
-        height: 40px;
-        width: 40px;
-        margin: 15px;
-        z-index: 2;
-    }
+    
     #dropdown{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
         width: 100%;
         text-align: end;
         grid-row: 1;
         padding: 0 $padding;
         justify-self: end;
         background-color: color(primary);
-        input{
+        @include cambio2{
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 60px;
+        };
+        @include cambio1{
+            grid-template-columns: 1fr 1fr 1fr;
+        };
+        
+        .logo{
+            display: grid;
+            grid-column: 1;
             grid-row: 2;
-            grid-column: 1/4;
-            width: 100%;
+            position: relative;
+            height: 50px;
+            width: 240px;
+            margin: 15px;
+            z-index: 0;
+            align-self: center;
+            justify-self: center;
+            @include cambio2{
+                grid-row: 1;               
+                grid-column: 1;
+                align-self: center;
+                justify-self: start;                 
+            };
+        }
+        .logo:hover{
+            cursor: pointer;
+        }
+        #ppic{
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+            z-index: 2;
+            
+        }
+        input{
+            grid-row: 3;
+            grid-column: 1;
+            width: 80%;
             padding: $padding;
             align-self: center;
             justify-self: center;
-            height: 60%;
+            height: 40%;
+            border-radius: 15px;
+            @include cambio2{
+                grid-row: 2;               
+                grid-column: 1/3;               
+            };
             @include cambio1{
                 grid-row: 1;
-                grid-column: 1;
-                width: 80%;
+                grid-column: 2;
             };
+            
         }
-        a{
+        .dropbtn{
+            align-self: center;
+            justify-self: center;
             grid-row: 1;
-            grid-column: 1/4;
+            grid-column: 1;
             color: color(tertiary);
-            font-size: 2em;
+            font-size: 1em;
             cursor: pointer;
-            @include cambio1{
-                grid-row: 1;
-                grid-column: 2/4;                
+            @include cambio2{
+                grid-row: 1;               
+                grid-column: 2;  
+                align-self: center;
+                justify-self: end;             
             };
+            @include cambio1{
+                grid-row: 1;               
+                grid-column: 3;               
+            };
+            
         }
         a:hover .dropdown-content {
             display: block;
@@ -137,11 +187,11 @@ header{
             box-shadow: 0px 20px 20px 0px rgba(0,0,0,0.2);
             z-index: 1;
             a{
-                font-size: 0.5em;
+                font-size: .7em;
                 text-transform: uppercase;
                 // font-weight: bold;
                 color: color(tertiary);
-                padding: $padding;
+                padding: 10px;
                 text-decoration: none;
                 display: block;
                 cursor: pointer;
@@ -161,13 +211,13 @@ header{
         align-self: center;
         justify-self: center;
         text-align: center;
-        text-transform: uppercase;
         padding: $padding;
         color: color(tertiary);
+        font-family: 'Meie Script', cursive;
+
         h1{
             margin: 0;
             background: color(secondary);
-            font-weight: bold;
             border: $borders solid color(primary);
         }
     }    
@@ -197,30 +247,12 @@ main{
             grid-column: 2;
             position: fixed;
             right: 5%;
-            top: 25%;
+            top: 35%;
         };
         
     }
 }
-div#comprar{
-    button{
-        text-transform: uppercase;
-        font-weight: bolder;
-        color: color(tertiary);
-        background: color(acento);
-        padding: $padding;
-        margin: .6em;
-        text-align: center; 
-        border: $borders solid color(tertiary);
-        z-index: 2;
-    }
-    button:hover{
-        background: color(secondary);
-        border: $borders color(primary) solid;
-        opacity: 1;    
-    }
-    
-}
+
 
 
 

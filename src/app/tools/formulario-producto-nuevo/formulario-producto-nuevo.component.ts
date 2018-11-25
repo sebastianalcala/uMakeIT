@@ -4,7 +4,6 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { MenuService } from '../../services/menu/menu.service';
 import { comida } from 'src/app/models/comida';
-import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-formulario-producto-nuevo',
@@ -14,7 +13,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class FormularioProductoNuevoComponent implements OnInit {
   form: FormGroup;
   modalRef: BsModalRef;
-  comida = {extras: [] = []} as comida;
+  comida = {extras: [] = [] , extrasSeleccionados: [] = []} as comida;
   cambiarPagina = false;
   extras = [];
 
@@ -36,10 +35,12 @@ export class FormularioProductoNuevoComponent implements OnInit {
     for (let j = 0; j < this.extras.length; j++) {
       this.comida.extras.push(this.extras[j]);
     }
+    this.comida.extrasSeleccionados.push(null);
+    this.comida.extrasSeleccionados.pop();
     this.ms.addComida(this.comida);
     this.cambiarPagina = !this.cambiarPagina;
     this.extras = [];
-    this.comida = {extras: [] = []} as comida;
+    this.comida = {extras: [] = [], extrasSeleccionados: [] = []} as comida;
     this.form.reset();
     this.modalRef.hide();
   }

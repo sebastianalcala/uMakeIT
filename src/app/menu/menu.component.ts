@@ -17,7 +17,10 @@ export class MenuComponent implements AfterViewInit {
 
   ngAfterViewInit() {
   }
-  comprar() {
+  menu() {
+    this.router.navigate(['/menu']);
+  }
+  orden() {
     this.router.navigate(['/orden']);
   }
   compras() {

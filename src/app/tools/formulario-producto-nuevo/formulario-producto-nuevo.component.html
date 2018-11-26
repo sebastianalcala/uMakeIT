@@ -15,7 +15,8 @@
               <label >Descripcion:</label>
               <input type="text" formControlName="description" [(ngModel)]="comida.description">  
               <label >Imagen:</label>
-              <input type="text" formControlName="img" [(ngModel)]="comida.img">
+              <input type="file" (change)="onFileChanged($event)">
+              <!-- <input type="text" formControlName="img" [(ngModel)]="comida.img"> -->
               <label >Precio:</label>
               <input type="number" formControlName="price" [(ngModel)]="comida.price">
               <button type="button" class="btn btn-primary" (click)="cambiarPag()">siguiente</button>

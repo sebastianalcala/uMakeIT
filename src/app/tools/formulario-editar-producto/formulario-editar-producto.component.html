@@ -14,7 +14,7 @@
           <label >Descripcion:</label>
           <input type="text" formControlName="description" >  
           <label >Imagen:</label>
-          <input type="text" formControlName="img" >
+          <input type="file" (change)="onFileChanged($event)">
           <label >Precio:</label>
           <input type="number" formControlName="price" >
           <button type="button submit" [disabled]="form.invalid" class="btn btn-primary" >Editar</button>

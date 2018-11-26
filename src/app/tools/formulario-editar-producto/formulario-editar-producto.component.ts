@@ -14,14 +14,13 @@ export class FormularioEditarProductoComponent implements OnInit {
   form: FormGroup;
   comida = {} as comida;
   modalRef: BsModalRef;
-
+  localUrl;
   @Input() eComida;
   constructor(private formBuilder: FormBuilder, public ms: MenuService, private modalService: BsModalService) {
     this.form = this.formBuilder.group({
       name: ['', ],
       description: ['', ],
       price: ['', ],
-      img: ['', ],
     });
    }
 
@@ -46,13 +45,23 @@ export class FormularioEditarProductoComponent implements OnInit {
       this.comida.price = this.form.value.price;
       this.ms.updateComida(this.comida);
     }
-    if (this.form.value.img !== '') {
-      this.comida.img = this.form.value.img;
+    if (this.localUrl !== null) {
+      this.comida.img = this.localUrl;
       this.ms.updateComida(this.comida);
     }
     this.form.reset();
     this.comida = {extrasSeleccionados: [] = []};
     this.modalRef.hide();
+  }
+  onFileChanged(event: any) {
+    if (event.target.files && event.target.files[0]) {
+        const reader = new FileReader();
+        // tslint:disable-next-line:no-shadowed-variable
+        reader.onload = (event: any) => {
+            this.localUrl = event.target.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
   }
 
 }

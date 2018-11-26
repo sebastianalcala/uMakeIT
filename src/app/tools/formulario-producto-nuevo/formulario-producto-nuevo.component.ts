@@ -16,12 +16,12 @@ export class FormularioProductoNuevoComponent implements OnInit {
   comida = {extras: [] = [] , extrasSeleccionados: [] = []} as comida;
   cambiarPagina = false;
   extras = [];
-
+  localUrl;
   constructor(private formBuilder: FormBuilder, public ms: MenuService, private modalService: BsModalService) {
     this.form = this.formBuilder.group({
       name: ['', [ Validators.required]],
       description: ['', [ Validators.required]],
-      img: ['', [ Validators.required]],
+      // img: ['', [ Validators.required]],
       price: ['', [ Validators.required]],
       extra: ['', [ Validators.required]],
     });
@@ -35,6 +35,7 @@ export class FormularioProductoNuevoComponent implements OnInit {
     for (let j = 0; j < this.extras.length; j++) {
       this.comida.extras.push(this.extras[j]);
     }
+    this.comida.img = this.localUrl;
     this.comida.extrasSeleccionados.push(null);
     this.comida.extrasSeleccionados.pop();
     this.ms.addComida(this.comida);
@@ -54,6 +55,16 @@ export class FormularioProductoNuevoComponent implements OnInit {
     const index: number = this.extras.indexOf(extra);
     if (index !== -1) {
       this.extras.splice(index, 1);
+    }
+  }
+  onFileChanged(event: any) {
+    if (event.target.files && event.target.files[0]) {
+        const reader = new FileReader();
+        // tslint:disable-next-line:no-shadowed-variable
+        reader.onload = (event: any) => {
+            this.localUrl = event.target.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
     }
   }
 

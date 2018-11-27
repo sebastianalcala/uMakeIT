@@ -52,9 +52,6 @@ img{
     height: 100%;
     width: 80%;
 }
-#nodisponible{
-    opacity: 0.5;
-}
 .card{
     float: left;
     height: 100%;
@@ -64,6 +61,7 @@ img{
     font-weight: bold;
     text-transform: uppercase;
     border: color(primary) solid $borders;
+    border-radius: 5%;
     box-shadow: 0 20px 60px color(primary);
     .extras{
         h5{ 
@@ -128,6 +126,15 @@ img{
             background: color(tertiary);
             border: $borders color(primary) solid;
             opacity: 1;    
+        }
+    }
+}
+#nodisponible{
+    opacity: 0.5;
+    .card-body2{
+        h1{
+            all: unset;
+            text-transform: capitalize;
         }
     }
 }

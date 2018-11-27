@@ -131,7 +131,7 @@ header{
             height: 40px;
             margin: 10px;
             z-index: 2;
-            
+            border-radius: 50%;            
         }
         input{
             grid-row: 3;
@@ -213,8 +213,6 @@ header{
         text-align: center;
         padding: $padding;
         color: color(tertiary);
-        font-family: 'Meie Script', cursive;
-
         h1{
             margin: 0;
             background: color(secondary);

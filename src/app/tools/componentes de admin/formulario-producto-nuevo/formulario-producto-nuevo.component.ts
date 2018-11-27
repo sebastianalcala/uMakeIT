@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import { MenuService } from '../../services/menu/menu.service';
+import { MenuService } from '../../../services/menu/menu.service';
 import { comida } from 'src/app/models/comida';
 
 @Component({

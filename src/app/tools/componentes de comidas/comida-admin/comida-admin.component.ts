@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuService } from '../../services/menu/menu.service';
+import { MenuService } from '../../../services/menu/menu.service';
 import { comida } from 'src/app/models/comida';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 

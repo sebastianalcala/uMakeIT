@@ -2,7 +2,7 @@ import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/autentificacion/auth.service';
 import { user } from '../models/user';
-import { ComidaComponent } from '../tools/comida/comida.component';
+import { ComidaComponent } from '../tools/componentes de comidas/comida/comida.component';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',

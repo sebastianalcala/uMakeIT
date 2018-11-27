@@ -45,7 +45,6 @@ export class ComidaComponent implements OnInit {
   }
    search($event) {
     const q = $event;
-    console.log(q);
     if (q !== null) {
       this.startAt.next(q);
       this.endAt.next(q + '\uf8ff');
@@ -55,9 +54,6 @@ export class ComidaComponent implements OnInit {
   }
   firequery(start, end) {
     return this.afs.collection('Menu', ref => ref.orderBy('name').startAt(start).endAt(end)).valueChanges();
-  }
-  sgetMenu() {
-    return this.afs.collection('Menu', ref => ref);
   }
 
 }

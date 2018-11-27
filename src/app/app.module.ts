@@ -14,9 +14,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { ComidaComponent } from './tools/comida/comida.component';
-import { CarouselComponent } from './tools/carousel/carousel.component';
-import { DropdownsComponent } from './tools/dropdowns/dropdowns.component';
-import { NavbarComponent } from './tools/navbar/navbar.component';
 import { OrdenComponent } from './orden/orden.component';
 import { FacturaDetalladaComponent } from './tools/factura-detallada/factura-detallada.component';
 import { ComidaAdminComponent } from './tools/comida-admin/comida-admin.component';
@@ -35,9 +32,6 @@ import { PaypalbtnComponent } from './tools/paypalbtn/paypalbtn.component';
     LoginComponent,
     MenuComponent,
     ComidaComponent,
-    CarouselComponent,
-    DropdownsComponent,
-    NavbarComponent,
     OrdenComponent,
     FacturaDetalladaComponent,
     ComidaAdminComponent,

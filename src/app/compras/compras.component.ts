@@ -24,8 +24,4 @@ export class ComprasComponent implements OnInit {
   orden() {
     this.router.navigate(['/orden']);
   }
-  // tslint:disable-next-line:no-shadowed-variable
-  cambiarClave(user: user) {
-    this.auth.cambiarClave(user);
-  }
 }

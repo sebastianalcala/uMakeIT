@@ -1,6 +1,6 @@
 <div class="card text-center">
     <div class="card-header">
-      Factura Detallada
+      <a>Factura Detallada</a>
     </div>
     <div class="card-body">
       <h4 class="card-title">TOTAL: {{u.carrito.monto}} BsS. </h4>
@@ -11,6 +11,7 @@
         <app-paypalbtn [u] = u [monto] = u.carrito.monto></app-paypalbtn>
         <div id="comprar">
           <button (click)="menu()" type="button" class="btn btn-primary">regresar al menu</button>
+          <button (click)="cs.guardarOrden(u)" type="button" class="btn btn-primary">simular pago</button>
         </div>
     </div>
 </div>

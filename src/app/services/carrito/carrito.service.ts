@@ -34,14 +34,6 @@ export class CarritoService {
     this.auth.updateUser(user);
   }
   // tslint:disable-next-line:no-shadowed-variable
-  agregarExtra(user: user , index: number, extra) {
-    console.log (user);
-    console.log (index);
-    console.log (extra);
-    // user.carrito.comida[index].extras.push(extra);
-    // this.auth.updateUser(user);
-  }
-  // tslint:disable-next-line:no-shadowed-variable
   guardarOrden(user: user) {
     const date = new Date();
     user.carrito.date = formatDate(date, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');

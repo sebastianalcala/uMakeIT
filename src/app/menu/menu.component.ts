@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/autentificacion/auth.service';
 import { user } from '../models/user';
@@ -14,7 +14,6 @@ export class MenuComponent implements AfterViewInit {
   searchterm: string;
   @ViewChild(ComidaComponent) comida;
   constructor(public auth: AuthService, private router: Router) { }
-
   ngAfterViewInit() {
   }
   menu() {

@@ -21,9 +21,8 @@ export class FormularioProductoNuevoComponent implements OnInit {
     this.form = this.formBuilder.group({
       name: ['', [ Validators.required]],
       description: ['', [ Validators.required]],
-      // img: ['', [ Validators.required]],
       price: ['', [ Validators.required]],
-      extra: ['', [ Validators.required]],
+      extra: [''],
     });
   }
   ngOnInit() {
